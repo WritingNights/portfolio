@@ -68,6 +68,11 @@ const projects = [
     title: 'Currency (CS50x final)',
     tools: ['HTML', 'CSS', 'Python', 'Flask'],
     image: curr,
+    description: [
+      'My first personal project helped me understand the basics of Flask (my first framework) and utilize Python backend to handle unique user sessions.',
+      'I based my project on the idea of building currency in a fluctuating market. In the background of the app, a function uses the time of day, day of the month, and month of the year to determine fluctuating prices.',
+      'Its a basic application with very little variety, but a strong start.'
+    ],
     gitLink: 'https://github.com/me50/WritingNights/tree/cs50/problems/2020/x/project',
     youtubeLink: 'https://youtu.be/PZjBfZdohSc'
   },
@@ -75,6 +80,10 @@ const projects = [
     title: 'Network',
     tools: ['HTML', "CSS", 'JavaScript', 'Python', 'Django'],
     image: network,
+    description: [
+      'My introduction to pagination, network runs similarly to twitter. It\'s a project everyone is required to make, but I took certain parts into my own hands to make it personal.',
+      'I started working with keyframes to make animations, used AJAX to update the DOM, and designed a somewhat monochrome (somewhat) layout.',
+    ],
     gitLink: 'https://github.com/me50/WritingNights/tree/web50/projects/2020/x/network',
     youtubeLink: 'https://youtu.be/sDkqIoyUZ3M'
   },
@@ -82,6 +91,12 @@ const projects = [
     title: 'Universal: World Builder',
     tools: ['HTML', 'CSS', 'JavaScript', 'Python', 'Django'],
     image: univ,
+    description: [
+      'My most recent project, and most complex, Universal is an app for those desinging a story world for any kind of thing. While it has basic features, the ability of the user to build out ideas is grand.',
+      'I pushed Django templates to the limit (limit for me) to make two separate forms. Coupled my learning of React to do DOM rendering with vanilla JS while the Django database was scalable to match the user\'s needs.',
+      'This project was a triumph of my CSS skills as I learned techniques to tagret elements with a few new psuedo-selectors.',
+      'Another task was to make the pages mobile friendly, which pushed me to think about a new set of rules and restrictions for each screen size. Now I use mobile responsiveness in my current projects, as well as push for accessibility standards.'
+    ],
     gitLink: 'https://github.com/me50/WritingNights/tree/web50/projects/2020/x/capstone',
     youtubeLink: 'https://youtu.be/D-I8_pMc8Co'
   }
@@ -118,6 +133,7 @@ class App extends React.Component {
         }
         return undefined;
       });
+      // eslint-disable-next-line
       this.setState({show: skillArray.filter((element) => {
         if (element !== undefined) {
           return element;
