@@ -32,7 +32,7 @@ function Book(props) {
         }
         const backface = {backfaceVisibility: 'hidden', WebkitBackfaceVisibility: 'hidden'};
         const projectDesc = array[i].description.map((obj, j, arr) => {
-            return (<p>{arr[j]}</p>);
+            return (<p key={j}>{arr[j]}</p>);
         });
         return (<div className="pro-content" style={style} key={i}>
             <div style={backface}>{array[i].title}</div>
