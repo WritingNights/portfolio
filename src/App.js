@@ -16,10 +16,14 @@ import react from "./components/LogoReact.png";
 import java from "./components/LogoJava.jpg";
 import flask from "./components/LogoFlask.jpg";
 
+import tic from "./components/Tic-Tac-Toe.png";
 import univ from "./components/Universal.png";
 import curr from "./components/Currency.png";
 import network from "./components/Network.png";
 import mail from "./components/Mail.png";
+import comm from "./components/Commerce.png";
+import wiki from "./components/Wiki.png";
+import goog from "./components/Search.png";
 
 const skills = [
   {
@@ -78,6 +82,41 @@ const projects = [
     youtubeLink: 'https://youtu.be/PZjBfZdohSc'
   },
   {
+    title: 'Search',
+    tools: ['HTML', 'CSS'],
+    image: goog,
+    description: [
+      'This was my first project as a part of the CS50 Web course where I was tasked with recreating the Google search page.',
+      'I made it using only HTML and CSS. This was my first experience with connecting search inputs, which google uses to create/filter each search.'
+    ],
+    gitLink: 'https://github.com/me50/WritingNights/tree/web50/projects/2020/x/search',
+    youtubeLink: 'https://youtu.be/Mjt3Ene4XCc'
+  },
+  {
+    title: 'Wiki',
+    tools: ['HTML', 'CSS', 'Python', 'Django'],
+    image: wiki,
+    description: [
+      'With this project, I was tasked with using markdown to create a Wikipedia replica. I was my first exposure to markdown.',
+      'I created a sidebar navigation with a search that looked for all instances of a string and not just exact matches.',
+      'As well, users could also create their own entries converted from markdown, and edit existing ones too.'
+    ],
+    gitLink: 'https://github.com/me50/WritingNights/tree/web50/projects/2020/x/wiki',
+    youtubeLink: 'https://youtu.be/-sxVXifkaOk'
+  },
+  {
+    title: 'Commerce',
+    tools: ['HTML', 'CSS', 'Python', 'Django'],
+    image: comm,
+    description: [
+      'I was tasked to create an eBay replica using the technologies they taught so far. This is where I learned a wider range of things about Django.',
+      'I learned how to create/use the admin page and creating links using variables on templates.',
+      'It was the first time I added user input options with a lot of ways to sort and track info per user.'
+    ],
+    gitLink: 'https://github.com/me50/WritingNights/tree/web50/projects/2020/x/commerce',
+    youtubeLink: 'https://youtu.be/Rzd3jwOAF8Y'
+  },
+  {
     title: 'Mail',
     tools: ['HTML', 'CSS', 'JavaScript', 'Python', 'Django'],
     image: mail,
@@ -111,6 +150,19 @@ const projects = [
     ],
     gitLink: 'https://github.com/me50/WritingNights/tree/web50/projects/2020/x/capstone',
     youtubeLink: 'https://youtu.be/D-I8_pMc8Co'
+  },
+  {
+    title: 'Tic-Tac-Toe',
+    tools: ['HTML', 'CSS', 'JavaScript', 'React'],
+    image: tic,
+    description: [
+      'This was the first project I completed on my own in React after creating my React portfolio.',
+      'I used a 2D array to store values of "X", "O", or "". When a user clicks a box, I update that point in the array and replace it in the state.',
+      'Besides creating this to make my first game, and to build something in React, I strived to make something intuitive and clean.',
+      'A notable feature include restarting the game after someone wins by clicking the winner screen.'
+    ],
+    gitLink: 'https://github.com/WritingNights/tic-tac-toe',
+    youtubeLink: null
   }
 ];
 
@@ -158,9 +210,7 @@ class App extends React.Component {
     }
   }
   updateImg(img, alt) {
-    console.log("here");
     if (img) {
-      console.log("img");
       this.setState({
         currentImg: img,
         currentAlt: alt
