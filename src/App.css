@@ -18,6 +18,7 @@
 
 body {
   background-color: var(--base-color);
+  overflow-x: hidden;
 }
 
 .centered {
@@ -116,9 +117,141 @@ body {
   align-items: center;
 }
 
-#aboutArt {
+.container {
+  position: relative;
+}
+
+.aboutArt {
   font-size: 3em;
+  height: 6em;
+  width: 6em;
+  border: 2px solid rgba(65, 42, 42, 0.85);
+  position: relative;
+  box-shadow: 1px 1px 11px rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.aboutArt div {
   text-shadow: 4px 3px 8px rgba(0, 0, 0, 0.5);
+}
+
+input {
+  position: absolute;
+  opacity: 0;
+  bottom: 0;
+  z-index: -2;
+  cursor: pointer;
+}
+
+label {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border: solid 2px black;
+  border-radius: 50%;
+  background-color: transparent;
+  margin: 5.4em 6px 0 6px;
+  z-index: 20;
+  cursor: pointer;
+  transition-duration: .4s;
+}
+
+input:checked + label{
+  background-color: white;
+}
+
+input:focus + label{
+  box-shadow: 0 0 0 2px var(--dark-color), 0 0 18px white;
+}
+
+.slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  transform: translateX(-100%);
+  transition-duration: .4s;
+  opacity: 1;
+}
+
+input:checked ~ .slide {
+  transform: translateX(100%);
+}
+
+input:checked + label + .slide {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.codingCard{
+  background-color: blanchedalmond;
+  font-size: .5em;
+}
+
+.codingCard code {
+  font-size: .6em;
+}
+
+.blue {
+  color: blue
+}
+
+.mainCard{
+  background-color: var(--second-light);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: .5em;
+}
+
+#im {
+  position: relative;
+  left: 40px;
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.5em;
+  font-weight: 700;
+}
+
+#cursName {
+  font-family: 'Allison', cursive;
+  font-size: 3.5em;
+  perspective: 30em;
+  display: block;
+  transform: rotateY(20deg) rotateZ(-20deg);
+  margin-bottom: .5em;
+}
+
+.writingCard{
+  background-color: blanchedalmond;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: .4em;
+  text-indent: .75em;
+  text-align: justify;
+  padding: .3em;
+}
+
+.writeHead {
+  text-align: center;
+  font-size: 1.1em;
+}
+
+#resume {
+  position: relative;
+  top: -25px;
+  left: 3px;
+  font-size: .8em;
+  font-weight: 700;
+  position: absolute;
+}
+
+#resume a {
+  color: black;
+  text-decoration: none;
 }
 
 /* projects.js */
@@ -333,6 +466,23 @@ body {
   border-radius: 50%;
 }
 
+/* img display */
+
+.fullImg {
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.fullImg img {
+  height: 60%;
+  width: 80%;
+}
+
 /* contact.js */
 
 #contact {
@@ -363,9 +513,7 @@ body {
   position: absolute;
   top: -20%;
   left: -7%;
-  transition: 150ms ease-in;
-  animation-name: hit;
-  animation-duration: 550ms;
+  animation: hit 550ms;
   animation-iteration-count: infinite;
   transform-origin: 50% 80%;
   z-index: 10;
@@ -392,34 +540,13 @@ body {
     transform: rotate(0);
   }
   35% {
-    transform: rotate(0)
+    transform: rotate(0);
   }
   50% {
     transform: rotate(70deg);
   }
   100% {
     transform: rotate(0);
-  }
-}
-.squish {
-  transition: 150ms ease-in;
-  animation-name: flat;
-  animation-duration: 550ms;
-  animation-iteration-count: infinite;
-}
-
-@keyframes flat {
-  0% {
-    transform: scale(1);
-  }
-  35% {
-    transform: scale(1);
-  }
-  65% {
-    transform: scale(.8);
-  }
-  100% {
-    transform: scale(1);
   }
 }
 
@@ -444,8 +571,7 @@ body {
   width: 17%;
   clip-path: polygon(15% 0, 0 100%, 100% 100%, 85% 0);
   background-color: black;
-  animation-name: screw;
-  animation-duration: 600ms;
+  animation: screw 600ms;
   animation-iteration-count: infinite;
 }
 
@@ -517,6 +643,10 @@ body {
       width: 8em;
     }
 
+    .fullImg {
+      height: calc(100vh - 4em);
+    }
+
     .anchor {
       scroll-margin-top: 4em;
     }
@@ -540,6 +670,10 @@ body {
       height: 100vh;
     }
 
+    #aboutArt div {
+      top: 15px;
+    }
+
     #package {
       flex-direction: column;
     }
@@ -560,6 +694,11 @@ body {
 
     .outer {
       margin: 0 .5em;
+    }
+
+    .fullImg img {
+      height: 30%;
+      width: 80%;
     }
 
     #contact {

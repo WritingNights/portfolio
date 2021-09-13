@@ -16,9 +16,10 @@ import react from "./components/LogoReact.png";
 import java from "./components/LogoJava.jpg";
 import flask from "./components/LogoFlask.jpg";
 
-import univ from "./components/UniversalThumbnail.jpg";
-import curr from "./components/Currency.jpg";
-import network from "./components/Network.jpg";
+import univ from "./components/Universal.png";
+import curr from "./components/Currency.png";
+import network from "./components/Network.png";
+import mail from "./components/Mail.png";
 
 const skills = [
   {
@@ -77,8 +78,19 @@ const projects = [
     youtubeLink: 'https://youtu.be/PZjBfZdohSc'
   },
   {
+    title: 'Mail',
+    tools: ['HTML', 'CSS', 'JavaScript', 'Python', 'Django'],
+    image: mail,
+    description: [
+      'This project was my first deep dive into the connection between Javascript and the DOM.',
+      'I also used AJAX to move the user around the page as they follow certain action buttons.'
+    ],
+    gitLink: 'https://github.com/me50/WritingNights/tree/web50/projects/2020/x/mail',
+    youtubeLink: 'https://youtu.be/Rw2MzehrpVM'
+  },
+  {
     title: 'Network',
-    tools: ['HTML', "CSS", 'JavaScript', 'Python', 'Django'],
+    tools: ['HTML', 'CSS', 'JavaScript', 'Python', 'Django'],
     image: network,
     description: [
       'My introduction to pagination, network runs similarly to twitter. It\'s a project everyone is required to make, but I took certain parts into my own hands to make it personal.',
@@ -107,9 +119,13 @@ class App extends React.Component {
     super(props);
     this.state = {
       pageNum: 0,
-      show: skills
+      show: skills,
+      currentImg: '',
+      currentAlt: ''
     }
     this.changePage = this.changePage.bind(this);
+    this.updateShow = this.updateShow.bind(this);
+    this.updateImg = this.updateImg.bind(this);
   }
   changePage(change) {
       const { pageNum } = this.state;
@@ -141,14 +157,31 @@ class App extends React.Component {
       })});
     }
   }
+  updateImg(img, alt) {
+    console.log("here");
+    if (img) {
+      console.log("img");
+      this.setState({
+        currentImg: img,
+        currentAlt: alt
+      })
+    } else {
+      this.setState({
+        currentImg: '',
+        currentAlt: ''
+      })
+    }
+  }
   render() {
+    const style = this.state.currentImg ? {zIndex: 50} : {zIndex: -1} ;
     return (
       <main>
         <Navbar />
         <About />
         <div id="package">
-          <Projects projects={projects} changePage={this.changePage} pageNum={this.state.pageNum} />
+          <Projects projects={projects} changePage={this.changePage} pageNum={this.state.pageNum} fullImg={this.updateImg} />
           <Skills skills={this.state.show} />
+          <div className="fullImg" onClick={() => this.updateImg('','')} style={style}><img src={this.state.currentImg} alt={this.state.currentAlt}/></div>
         </div>
         <Contact />
       </main>

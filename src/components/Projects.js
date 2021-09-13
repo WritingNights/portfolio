@@ -3,7 +3,7 @@ import React from "react";
 export default function Projects(props) {
     return (<section id="projects" className="anchor">
         <div>
-            <Book pageNum={props.pageNum} projects={props.projects} />
+            <Book pageNum={props.pageNum} projects={props.projects} fullImg={props.fullImg} />
             <div id="controls">
                 <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" onClick={() => props.changePage('minus')} id="page-back" className="bi bi-arrow-left-circle-fill" viewBox="0 0 16 16">
                     <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zm3.5 7.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z"/>
@@ -36,7 +36,7 @@ function Book(props) {
         });
         return (<div className="pro-content" style={style} key={i}>
             <div style={backface}>{array[i].title}</div>
-            <img style={backface} src={array[i].image} title={array[i].title} alt={array[i].title}/>
+            <img style={backface} src={array[i].image} title={array[i].title} alt={array[i].title} onClick={() => props.fullImg(array[i].image, array[i].title)} />
             <div className="pageBottom" style={backface}>
                 <div className="proDesc">{projectDesc}</div>
                 <div className="pro-links">
