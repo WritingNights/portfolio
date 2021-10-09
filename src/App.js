@@ -167,7 +167,7 @@ const projects = [
   },
   {
     title: 'Amazon Prime Sign-up Clone',
-    tools: ['HTML', 'CSS', 'Javascript', 'React'],
+    tools: ['HTML', 'CSS', 'JavaScript', 'React'],
     image: amzn,
     description: [
       'I built this project while being considered for a position at Amazon. It was a personal project to understand how the main pages worked for customers.',
