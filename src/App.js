@@ -16,6 +16,7 @@ import react from "./components/LogoReact.png";
 import java from "./components/LogoJava.jpg";
 import flask from "./components/LogoFlask.jpg";
 
+import amzn from "./components/Amazon.png";
 import tic from "./components/Tic-Tac-Toe.png";
 import univ from "./components/Universal.png";
 import curr from "./components/Currency.png";
@@ -162,6 +163,17 @@ const projects = [
       'A notable feature include restarting the game after someone wins by clicking the winner screen.'
     ],
     gitLink: 'https://github.com/WritingNights/tic-tac-toe',
+    youtubeLink: null
+  },
+  {
+    title: 'Amazon Prime Sign-up Clone',
+    tools: ['HTML', 'CSS', 'Javascript', 'React'],
+    image: amzn,
+    description: [
+      'I built this project while being considered for a position at Amazon. It was a personal project to understand how the main pages worked for customers.',
+      'I learned more about background-images and custom icons while also making more component-based elements.'
+    ],
+    gitlink: 'https://github.com/WritingNights/amazon',
     youtubeLink: null
   }
 ];
