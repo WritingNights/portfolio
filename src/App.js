@@ -173,7 +173,7 @@ const projects = [
       'I built this project while being considered for a position at Amazon. It was a personal project to understand how the main pages worked for customers.',
       'I learned more about background-images and custom icons while also making more component-based elements.'
     ],
-    gitlink: 'https://github.com/WritingNights/amazon',
+    gitLink: 'https://github.com/WritingNights/amazon',
     youtubeLink: null
   }
 ];
