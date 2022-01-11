@@ -1,10 +1,10 @@
 import React from "react";
 
-export default function About() {
+export default function About(props) {
     return (
-        <section id="about" className="anchor">
+        <section id="about" className={`${props.mode}about anchor`}>
             <div className="container">
-                <span id="resume"><a href="./danielResume.docx" download>Resume</a></span>
+                <span id="resume"><a href="./danielResume.docx" download style={props.mode === 'dark-' ? {color: 'white'} : {}}>Resume</a></span>
                 <article className="aboutArt">
                     {/* coding card */}
                     <input type="radio" id="trigger1" name="slider"/>
@@ -32,7 +32,7 @@ export default function About() {
                     <input type="radio" id="trigger2" name="slider" defaultChecked autoFocus/>
                     <label htmlFor="trigger2"></label>
                     <div className="slide mainCard">
-                        <span id="im">I'm</span><br/><span id="cursName">Daniel Jones</span>
+                        <span id="im">I'm</span><span id="cursName">Daniel Jones</span>
                     </div>
                     {/* writing card */}
                     <input type="radio" id="trigger3" name="slider"/>
