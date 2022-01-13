@@ -74,27 +74,18 @@ textarea, .formInputs input {
 #navbar {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  height: calc(4em + 8px);
+  align-items: flex-start;
   color: white;
   z-index: 100;
-}
-
-.light-navbar {
-  background-color: rgba(213, 240, 209, .95);
-  border-bottom: 2px solid #c6ddc4;
-}
-
-.dark-navbar {
-  background-color: rgba(121, 135, 119, .95);
-  border-bottom: 2px solid var(--dark-color);
+  position: fixed;
+  top: 0;
+  width: 100%;
 }
 
 #nav-left {
-  height: 100%;
+  height: calc(4em + 8px);
   display: flex;
   flex-direction: row;
-  overflow-y: hidden;
   padding-right: 10px;
 }
 
@@ -103,7 +94,6 @@ textarea, .formInputs input {
 }
 
 .leftLink {
-  color: var(--accent-color-dark);
   text-decoration: none;
   font-weight: 600;
   height: 100%;
@@ -113,8 +103,12 @@ textarea, .formInputs input {
   align-items: center;
 }
 
-.leftLink:hover, .leftLink:focus {
-  color: var(--base-color)
+.light-navbar-left .leftLink, .dark-navbar-left .leftLink:hover, .dark-navbar-left .leftLink:focus {
+  color: var(--dark-color);
+}
+
+.light-navbar-left .leftLink:hover, .light-navbar-left .leftLink:focus, .dark-navbar-left .leftLink {
+  color: white;
 }
 
 .mode-container {
@@ -160,11 +154,18 @@ textarea, .formInputs input {
   padding: 5px;
 }
 
+#closeAnchors, #openAnchors {
+  align-self: center;
+  margin-top: 5px;
+  cursor: pointer;
+}
+
 #nav-right {
   padding: .5em .5em .25em;
-  margin: 0 1%;
+  margin: 13px 1%;
   border-radius: 1em;
   background-color: rgba(255, 255, 255, 0.9);
+  align-self: center;
 }
 
 #nav-right:hover > #socialIcon {
@@ -172,7 +173,9 @@ textarea, .formInputs input {
 }
 
 #nav-right:hover > #socials {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  align-self: flex-end;
 }
 
 #socials {
@@ -180,13 +183,14 @@ textarea, .formInputs input {
   display: none;
 }
 #socials a {
-  margin: 0 .9em;
+  margin: .2em;
 }
 
 /* about.js */
 
 #about {
-  height: calc(100vh - 4em);
+  min-height: 100vh;
+  height: auto;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -338,7 +342,9 @@ textarea, .formInputs input {
 /* projects.js */
 
 #package {
-  max-height: 100vh;
+  min-height: 100vh;
+  height: auto;
+  padding-top: 0px;
   display: flex;
   flex-direction: row;
 }
@@ -356,6 +362,7 @@ textarea, .formInputs input {
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
+  align-self: center;
 }
 
 #book-cloud {
@@ -572,6 +579,7 @@ textarea, .formInputs input {
 #skills {
   display: flex;
   flex-direction: column;
+  max-height: 100vh;
 }
 
 #skill-head {
@@ -636,10 +644,11 @@ textarea, .formInputs input {
 /* contact.js */
 
 #contact {
-  height: calc(100vh - 4em);
+  height: auto;
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 1em 0;
 }
 
 .light-contact {
@@ -737,15 +746,6 @@ textarea, .formInputs input {
 
 @media only screen
   and (min-width: 813px) {
-    #navbar {
-      position: sticky;
-      top: 0;
-    }
-
-    #nav-left {
-      width: calc(90% - 11em);
-    }
-
     .leftLink svg {
       height: 30;
       width: 30;
@@ -757,7 +757,6 @@ textarea, .formInputs input {
 
     #package {
       flex-direction: row;
-      height: calc(100vh - 4em);
     }
 
     #projects {
@@ -800,19 +799,7 @@ textarea, .formInputs input {
 @media only screen
   and (max-width: 812px) {
     #nav-left {
-      max-width: 50%;
       overflow-x: scroll;
-      box-shadow: inset -3px 0 4px -2px var(--shadow),
-        inset 3px 0 4px -2px var(--shadow);
-    }
-
-    .leftLink svg {
-      height: 24;
-      width: 24;
-    }
-
-    #about {
-      height: 100vh;
     }
 
     #aboutArt div {
@@ -821,11 +808,7 @@ textarea, .formInputs input {
 
     #package {
       flex-direction: column;
-      padding-bottom: 4em;
-    }
-
-    #projects {
-      height: calc(100vh - 8em);
+      padding: 2em 0;
     }
 
     #skills-cloud {
@@ -847,10 +830,6 @@ textarea, .formInputs input {
     .fullImg img {
       max-height: 50%;
       max-width: 90%;
-    }
-
-    #contact {
-      height: 100vh;
     }
 
     .contactArt {

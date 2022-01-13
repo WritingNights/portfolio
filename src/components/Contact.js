@@ -28,7 +28,10 @@ class Contact extends React.Component {
             headers: { "Content-Type": "application/x-www-form-urlencoded" },
             body: this.encode({ "form-name": "contact", name, email, message })
         })
-          .then(() => alert("Message sent!"))
+          .then(() => {
+              this.setState({name: '', email: '', message: ''});
+              alert("Message sent!");
+          })
           .catch(error => alert(error));
     }
 
