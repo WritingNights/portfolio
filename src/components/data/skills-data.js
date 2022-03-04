@@ -1,23 +1,11 @@
-import html from "../logos/LogoHTML5.jpg";
-import css from "../logos/LogoCSS3.jpg";
 import js from "../logos/LogoJS.jpg";
 import py from "../logos/LogoPython.png";
 import dj from "../logos/LogoDjango.svg";
 import react from "../logos/LogoReact.png";
-import java from "../logos/LogoJava.jpg";
+import mongo from "../logos/MongoDB.jpg";
 import flask from "../logos/LogoFlask.jpg";
 
 const skills = [
-    {
-      skill: 'HTML',
-      confidence: 4,
-      image: html
-    },
-    {
-      skill: 'CSS',
-      confidence: 4,
-      image: css
-    },
     {
       skill: 'JavaScript',
       confidence: 4,
@@ -39,9 +27,9 @@ const skills = [
       image: react
     },
     {
-      skill: 'Java',
-      confidence: 1,
-      image: java
+      skill: 'MongoDB',
+      confidence: 2,
+      image: mongo
     },
     {
       skill: 'Flask',

@@ -1,3 +1,4 @@
+import blog from "../projects/MernBlog.png";
 import amzn from "../projects/Amazon.png";
 import tic from "../projects/Tic-Tac-Toe.png";
 import univ from "../projects/Universal.png";
@@ -113,6 +114,18 @@ const projects = [
         'I learned more about background-images and custom icons while also making more component-based elements.'
       ],
       gitLink: 'https://github.com/WritingNights/amazon',
+      youtubeLink: null
+    },
+    {
+      title: 'MERN-Stack Blog',
+      tools: ['HTML', 'CSS', 'JavaScript', 'React', 'Express', 'Node', 'MongoDB', 'GSAP'],
+      image: blog,
+      description: [
+        'This was my first attempt at making a full stack application. I used a tutorial to learn the basics, but adjusted it for the needs of this project.',
+        'The backend communicates with three collections on the database with full CRUD capabilities.',
+        'The frontend uses animation to give a clean feel and complimenting colors to maintain brand.'
+      ],
+      gitLink: 'https://github.com/WritingNights/blog',
       youtubeLink: null
     }
   ];
