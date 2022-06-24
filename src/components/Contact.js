@@ -10,7 +10,9 @@ class Contact extends React.Component {
       name: '',
       email: '',
       message: ''
-    }
+    };
+
+    this.ref = React.createRef();
 
     this.encode = this.encode.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -38,30 +40,34 @@ class Contact extends React.Component {
   render() {
     return (
       <section id="contact" className={`${this.props.mode}contact`}>
+        <div className="bar1"/>
+        <div className="bar2"/>
         <article className="contactArt">
           <div className="conImg">
             <img src={face} alt="me"/>
+            <h2>Hire Me</h2>
+          </div>
+          <div className="textCont" style={this.props.mode === 'dark-' ? { color: 'white' } : {}}>
+            {aboutMe}
           </div>
           <div className="hireFormDiv">
-            <h2 style={this.props.mode === 'dark-' ? {color: 'white', borderBottom: '1px solid white'} : {}}>Hire Me</h2>
             <form netlify="true" name="contact" onSubmit={this.handleSubmit} className="hireForm">
-              <div className="left-body">
-                {aboutMe}
-              </div>
               <div className="formInputs">
-                <div>
-                  <label htmlFor="name">Name</label>
-                  <input type="text" id="name" name="name" onChange={(e) => this.setState({ name: (e.target.value) })} value={this.state.name} required/>
-                </div>
-                <div>
-                  <label htmlFor="email">Email</label>
-                  <input type="email" id="email" name="email" onChange={(e) => this.setState({ email: (e.target.value) })} value={this.state.email} required/>
-                </div>
-                <div>
+                <div className="conInp">
                   <label htmlFor="message">Message</label>
                   <textarea type="text" id="message" name="message" onChange={(e) => this.setState({ message: (e.target.value) })} value={this.state.message} />
                 </div>
-                <button type="submit">Hire</button>
+                <section>
+                  <div className="conInp">
+                    <label htmlFor="name">Name</label>
+                    <input type="text" id="name" name="name" onChange={(e) => this.setState({ name: (e.target.value) })} value={this.state.name} required/>
+                  </div>
+                  <div className="conInp">
+                    <label htmlFor="email">Email</label>
+                    <input type="email" id="email" name="email" onChange={(e) => this.setState({ email: (e.target.value) })} value={this.state.email} required/>
+                  </div>
+                  <button type="submit">Hire</button>
+                </section>
               </div>
             </form>
           </div>

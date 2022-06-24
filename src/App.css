@@ -1,9 +1,3 @@
-:root {
-  --dark-color: #798777;
-  --second-light: #bdd2b6;
-}
-
-
 * {
   margin: 0;
   padding: 0;
@@ -69,6 +63,7 @@ textarea, input {
 */
 
 #navbar {
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
@@ -76,7 +71,6 @@ textarea, input {
   z-index: 100;
   position: fixed;
   top: 0;
-  width: 100%;
 }
 
 #nav-left {
@@ -101,7 +95,7 @@ textarea, input {
 }
 
 .light-navbar-left .leftLink, .dark-navbar-left .leftLink:hover, .dark-navbar-left .leftLink:focus {
-  color: var(--dark-color);
+  color: black;
 }
 
 .light-navbar-left .leftLink:hover, .light-navbar-left .leftLink:focus, .dark-navbar-left .leftLink {
@@ -198,7 +192,7 @@ textarea, input {
   flex-direction: column;
   align-items: center;
   position: absolute;
-  top: 4.5rem;
+  top: 4.2rem;
   z-index: 5;
 }
 
@@ -263,7 +257,7 @@ textarea, input {
 
 .aboutArt {
   width: 100%;
-  max-height: 90vh;
+  margin: 6rem 0;
   padding: 1rem;
   position: relative;
   background-color: #ffffff77;
@@ -271,11 +265,11 @@ textarea, input {
   box-shadow: 1px 1px 11px #00000080;
   border-radius: 5px;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
   align-items: center;
   overflow-x: hidden;
-  overflow-y: scroll;
 }
 
 .aboutArt::-webkit-scrollbar {
@@ -325,11 +319,11 @@ textarea, input {
 }
 
 .leftTag {
-  grid-template-columns: 48px auto;
+  grid-template-columns: 4.5rem auto;
 }
 
 .rightTag {
-  grid-template-columns: auto 48px;
+  grid-template-columns: auto 4.5rem;
 }
 
 .resume {
@@ -546,7 +540,7 @@ textarea, input {
 }
 
 .light-package {
-  background-color: var(--second-light);
+  background-color: white;
 }
 
 .dark-package {
@@ -840,11 +834,34 @@ textarea, input {
 /* contact.js */
 
 #contact {
-  height: auto;
+  min-height: 100vh;
+  max-width: 100vw;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 5rem 0 1rem;
+  overflow-x: hidden;
+  position: relative;
+}
+
+.bar1 {
+  height: 10rem;
+  width: 110vw;
+  background-color: rgba(150, 247, 228, 0.9);
+  position: absolute;
+  top: 25rem;
+  left: -5%;
+  transform: rotate(-8deg);
+}
+
+.bar2 {
+  height: 10rem;
+  width: 120vw;
+  background-color: rgba(138, 192, 129, 0.9);
+  position: absolute;
+  top: 0;
+  left: -10%;
+  transform: rotate(-18deg);
 }
 
 .light-contact {
@@ -856,45 +873,53 @@ textarea, input {
 }
 
 .contactArt {
-  display: flex;
-  flex-direction: row;
+  min-width: 25rem;
   width: 90%;
   height: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  z-index: 2;
 }
 
 .conImg {
-  max-height: 90vh;
-  align-self: center;
+  width: 350px;
+  max-width: 350px;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
+  position: relative;
 }
 
 .conImg img {
-  max-height: 100%;
-  max-width: 100%;
+  width: 100%;
   background: rgba(90, 68, 72, 0.4);
   border-radius: 5px;
+  opacity: .95;
+}
+
+.conImg h2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 2.5rem;
+  padding: 0 .75rem;
+  color: white;
+  border-bottom: 1px solid white;
 }
 
 .hireFormDiv {
   width: 90%;
+  max-width: 26rem;
   height: 90%;
   margin: 1rem;
-}
-
-.hireFormDiv > h2 {
-  width: fit-content;
-  font-size: 2.5rem;
-  margin-bottom: .75rem;
-  margin-left: 15%;
-  padding: 0 .75rem;
-  border-bottom: 1px solid black;
+  grid-column: 1 / 3;
+  font-family: 'Poppins', sans-serif;
 }
 
 .hireForm {
-  display: flex;
-  flex-direction: row;
   font-weight: 700;
   padding: .25rem .5rem;
   background-color: #dac7aad9;
@@ -902,11 +927,8 @@ textarea, input {
   position: relative;
 }
 
-.left-body, .formInputs {
-  width: 50%;
-}
-
-.left-body {
+.textCont {
+  max-width: 20rem;
   padding: 10px;
   display: flex;
   justify-content: center;
@@ -922,10 +944,28 @@ textarea, input {
 
 .meText p {
   padding: 10px 0;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.2rem;
+  font-weight: bold;
 }
 
-.formInputs, .formInputs div {
-  display: grid;
+.formInputs {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.formInputs section {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.conInp {
+  min-width: 50%;
+  margin: .25rem;
+  display: flex;
+  flex-direction: column;
 }
 
 .hireForm [type="submit"] {
@@ -936,6 +976,7 @@ textarea, input {
   margin: 5px;
   padding: 7px 14px 4px;
   font-weight: 700;
+  cursor: pointer;
 }
 
 /* media queries */
@@ -999,7 +1040,7 @@ textarea, input {
     }
 
     .socialTopper {
-      padding: .25rem .25rem .125rem;
+      padding: .3rem .3rem .14rem;
       background-color: #ffffffec;
       border-radius: .8rem;
       box-shadow: 0 1px 3px #000000b8;
@@ -1062,17 +1103,18 @@ textarea, input {
       max-width: 90%;
     }
 
+    .bar1 {
+      top: 38rem;
+    }
+
+    .bar2 {
+      top: 20rem;
+    }
+
     .contactArt {
       flex-direction: column;
       justify-content: space-evenly;
       align-items: center;
-    }
-
-    .conImg {
-      min-height: 10%;
-      max-height: 45%;
-      min-width: 10%;
-      max-width: 75%;
     }
 
     .hireFormDiv {
@@ -1083,11 +1125,12 @@ textarea, input {
       flex-direction: column;
     }
 
-    .left-body, .formInputs {
+    .formInputs {
       width: 100%;
+      flex-direction: column;
     }
 
     textarea {
-      min-height: 100px;
+      min-height: 200px;
     }
   }

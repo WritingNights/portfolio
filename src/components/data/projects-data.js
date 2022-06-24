@@ -8,6 +8,7 @@ import mail from "../projects/Mail.png";
 import comm from "../projects/Commerce.png";
 import wiki from "../projects/Wiki.png";
 import goog from "../projects/Search.png";
+import mine from "../projects/Minesweeper.png";
 
 const projects = [
     {
@@ -126,6 +127,18 @@ const projects = [
         'The frontend uses animation to give a clean feel and complimenting colors to maintain brand.'
       ],
       gitLink: 'https://github.com/WritingNights/blog',
+      youtubeLink: null
+    },
+    {
+      title: 'Mix-Up Minesweeper',
+      tools: ['HTML', 'CSS', 'JavaScript', 'React', 'GSAP'],
+      image: mine,
+      description: [
+        'I took on the logical challenge that is minesweeper. From placing random mines to filling the numbers on the board, and even as far as the difference between blank, flagged, and clicked.',
+        'What came after was a challenge to myself as I strive to make all my projects as accessible as possible. The game is traditionally played with only the mouse. I didn\'t think that was enough.',
+        'This minesweeper is fully playable and navigable with just the keyboard as much as it is with mouse or touchscreen.'
+      ],
+      gitLink: 'https://github.com/WritingNights/minesweeper',
       youtubeLink: null
     }
   ];

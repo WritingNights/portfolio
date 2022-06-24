@@ -23,7 +23,7 @@ class App extends React.Component {
       currentImg: '',
       currentAlt: '',
       light: true,
-      proWidth: 0,
+      //proWidth: 0,
       newProjects: true
     }
 
@@ -112,7 +112,7 @@ class App extends React.Component {
   }*/
 
   render() {
-    const style = this.state.currentImg ? {zIndex: 50} : {zIndex: -1} ;
+    const style = this.state.currentImg ? {zIndex: 50} : {zIndex: -1};
     let mode = this.state.light ? 'light-' : 'dark-';
 
     const packageData = {

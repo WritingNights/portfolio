@@ -9,7 +9,7 @@ const aboutMe = (<div className="meText">
     </p>
     <p>
         Between efficient functions, custom layouts, and unique style,
-        your site will be as if its own living, breathing document.
+        your site will be its own living, breathing document.
     </p>
 </div>);
 
