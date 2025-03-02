@@ -74,7 +74,7 @@ textarea, input {
 }
 
 #collapseDiv {
-  height: 4rem;
+  height: 5rem;
   width: 80%;
   margin: 0 10%;
   position: fixed;
@@ -83,6 +83,7 @@ textarea, input {
   flex-direction: row;
   align-items: center;
   justify-content: flex-end;
+  z-index: 10;
 }
 
 #navbar {
@@ -134,6 +135,7 @@ textarea, input {
 
 .links {
   height: 100%;
+  width: 50%;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -167,34 +169,6 @@ textarea, input {
 
 #collapse {
   cursor: pointer;
-}
-
-.mode-container {
-  height: 35px;
-  width: 35px;
-  border-radius: 25px;
-  margin: .5rem;
-  background-color: white;
-  align-self: center;
-  display: flex;
-  justify-content: center;
-  justify-self: center;
-}
-
-.toggle {
-  height: 90%;
-  width: 90%;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  background-color: black;
-  color: white;
-}
-
-.toggle svg {
-  padding: 5px;
 }
 
 #closeAnchors, #openAnchors {
@@ -249,7 +223,7 @@ textarea, input {
 
 .aboutArt {
   width: 100%;
-  margin: 2rem 0;
+  margin: 0 0 1rem 0;
   padding: 1rem;
   position: relative;
   /*backdrop-filter: blur(.25rem);*/
@@ -369,7 +343,7 @@ and (max-width: 739px) {
 }
 
 .projectsWrapper {
-  height: 100vh;
+  height: 100%;
   padding: 5rem 5px 5px;
   display: grid;
   grid-template-columns: 20% 80%;
@@ -401,13 +375,13 @@ and (max-width: 739px) {
 }
 
 .projectsDisplay {
-  max-height: calc(100vh - 5rem);
+  min-height: calc(100vh - 5rem);
   width: auto;
   padding: .5rem 1.5rem;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  overflow-y: scroll;
+  overflow-y: visible;
 }
 
 .projectsDisplay::-webkit-scrollbar {
@@ -962,6 +936,26 @@ and (max-width: 739px) {
   padding: 7px 14px 4px;
   font-weight: 700;
   cursor: pointer;
+}
+
+/* Footer */
+
+#footer {
+  width: 100%;
+  padding: 2rem;
+  background-color: #12685C;
+  text-decoration: none;
+  font-weight: 600;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
+}
+
+#footer div {
+  display: flex;
+  flex-direction: column;
 }
 
 /* media queries */

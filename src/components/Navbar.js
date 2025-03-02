@@ -79,12 +79,12 @@ class Navbar extends React.Component {
     const { collapsed } = this.state;
     if (collapsed) {
       return (<div id="collapseDiv">
-        <img src={collapseD} id="collapseClose" style={{width: "2rem"}} onClick={this.collapse} tabIndex="0" />
+        <img src={collapseD} alt="collapse" id="collapseClose" style={{width: "2rem", cursor: "pointer"}} onClick={this.collapse} tabIndex="0" />
       </div>);
     } else {
-    return (
-      <div id="navbar">
-        {this.state.expanded ? (<div id="nav-left" className="navbar-left">
+      return (
+        <div id="navbar">
+          {this.state.expanded ? (<div id="nav-left" className="navbar-left">
           <div id="closeAnchors" onClick={this.anchorShift} title="Close Nav" tabIndex="0" onKeyUp={this.keyPress}>
             <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill='black' className="bi bi-chevron-bar-left" viewBox="0 0 16 16">
               <path fillRule="evenodd" d="M11.854 3.646a.5.5 0 0 1 0 .708L8.207 8l3.647 3.646a.5.5 0 0 1-.708.708l-4-4a.5.5 0 0 1 0-.708l4-4a.5.5 0 0 1 .708 0zM4.5 1a.5.5 0 0 0-.5.5v13a.5.5 0 0 0 1 0v-13a.5.5 0 0 0-.5-.5z"/>
@@ -102,59 +102,37 @@ class Navbar extends React.Component {
             </svg>
             &nbsp;Projects
           </Link>
-          <Link to={"/contact"} className="leftLink" title="Contact" onMouseOver={this.hoverEffect} onMouseOut={this.hoverStop}>
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill='black' className="bi bi-envelope" id="contactSVG" viewBox="0 0 16 14">
-              <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2zm13 2.383-4.758 2.855L15 11.114v-5.73zm-.034 6.878L9.271 8.82 8 9.583 6.728 8.82l-5.694 3.44A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.739zM1 11.114l4.758-2.876L1 5.383v5.73z"/>
-            </svg>
-            &nbsp;Contact
-          </Link>
-          <a href="./UTDTechResume.pdf" className="leftLink" title="Download" onMouseOver={this.hoverEffect} onMouseOut={this.hoverStop} download>
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill='none' viewBox="0 0 48 48" id="resumeSVG">
-                <path d="M10 38V44H38V38" fill="" stroke="black" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
-                <path d="M38 20V14L30 4H10V20" fill="" stroke="black" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
-                <path d="M28 4V14H38" stroke="black" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
-                <rect x="4" y="20" width="40" height="18" rx="2" stroke="black" strokeWidth="3" strokeLinejoin="round"/>
-                <path d="M21 25V33" stroke="black" strokeWidth="3" strokeLinecap="round"/>
-                <path d="M10 25V33" stroke="black" strokeWidth="3" strokeLinecap="round"/>
-                <path d="M32 33V25H37" stroke="black" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
-                <path d="M32 30H37" stroke="black" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
-                <path d="M10 25H13.5C14.8807 25 16 26.1193 16 27.5V27.5C16 28.8807 14.8807 30 13.5 30H10" stroke="black" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
-                <path d="M21 25H23C25.2091 25 27 26.7909 27 29V29C27 31.2091 25.2091 33 23 33H21" stroke="black" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
-                <path d="M16 12H20" stroke="black" strokeWidth="3" strokeLinecap="round"/>
-            </svg>
-            &nbsp;Resume
-          </a>
-        </div>) : (<div id="nav-left" className="navbar-left">
+          </div>) : (<div id="nav-left" className="navbar-left">
           <div id="openAnchors" onClick={this.anchorShift} title="Open Nav" tabIndex="0" onKeyUp={this.keyPress}>
             <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill='black' className="bi bi-chevron-right" viewBox="0 0 16 16">
               <path fillRule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
             </svg>
           </div>
-        </div>)}
-        <div id="newLinks">
-          <Link to={"/"} className="link" id="home" title="Home">
-            <img src={icon} alt="home button/icon" style={{width: "4rem", aspectRatio: 1}} />
-          </Link>
-           <section className="links">
-            <Link to={"/writing"} className="link center" title="Writing">
-              &nbsp;Writing
+          </div>)}
+          <div id="newLinks">
+            <Link to={"/"} className="link" id="home" title="Home">
+              <img src={icon} alt="home button/icon" style={{width: "4rem", aspectRatio: 1}} />
             </Link>
-            <Link to={"/websites"} className="link center" title="Websites">
-             &nbsp;Websites
-            </Link>
-            <Link to={"/graphics"} className="link center" title="Graphics">
-              &nbsp;Graphics
-            </Link>
-            <Link to={"/podcast"} className="link center podcast" title="Podcast">
-              &nbsp;Podcast
+            <section className="links">
+              <Link to={"/writing"} className="link center" title="Writing">
+                &nbsp;Writing
+              </Link>
+              <Link to={"/websites"} className="link center" title="Websites">
+               &nbsp;Websites
+              </Link>
+              <Link to={"/graphics"} className="link center" title="Graphics">
+                &nbsp;Graphics
+              </Link>
+              <Link to={"/podcast"} className="link center podcast" title="Podcast">
+                &nbsp;Podcast
               <img src={beacon} alt="beacon/podcasts" style={{width: "4rem"}}  />
-            </Link>
-          </section>
-          <img src={collapse} id="collapse" style={{width: "2rem"}} onClick={this.collapse} tabIndex="0" />
+              </Link>
+            </section>
+            <img src={collapse} alt="collapse" id="collapse" style={{width: "2rem"}} onClick={this.collapse} tabIndex="0" />
+          </div>
         </div>
-      </div>
-    );
-  }
+      );
+    }
   }
 }
 

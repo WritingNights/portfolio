@@ -2,7 +2,6 @@ import React from 'react';
 import './App.css';
 import { Routes, Route } from "react-router-dom";
 
-import Navbar from "./components/Navbar.js";
 import About from "./components/About.js";
 import ProjectSwitch from "./components/ProjectSwitch.js";
 import OldProjects from "./components/OldProjects.js";
@@ -10,10 +9,15 @@ import Projects from "./components/Projects.js";
 import Skills from "./components/Skills.js";
 import Contact from "./components/Contact.js";
 
+
+import Navbar from "./components/Navbar.js";
+
 import Writing from "./components/Writing.js";
 import Websites from "./components/Websites.js";
 import Graphics from "./components/Graphics.js";
 import Podcast from "./components/Podcast.js";
+
+import Footer from "./components/Footer.js";
 
 import skills from "./components/data/skills-data";
 import websites from "./components/data/projects-data";
@@ -115,8 +119,9 @@ class App extends React.Component {
           <Route path={"/writing"} element={<Writing />} />
           <Route path={"/websites"} element={<Websites />} />
           <Route path={"/graphics"} element={<Graphics />} />
-          <Route path={"/podast"} element={<Podcast />} />
+          <Route path={"/podcast"} element={<Podcast />} />
         </Routes>
+        <Footer />
       </main>
     );
   }
