@@ -15,10 +15,10 @@ class Projects extends React.Component {
         obj => this.state.filter ? obj.tools.includes(this.state.filter) : obj
       ).map((obj, i) => {
         return (<div key={i} className="projectCard" onClick={() => this.setState({ focus: obj })} tabIndex="0">
-          <div className="visibleProject"><img src={obj.image} alt={obj.title} title={obj.title}/></div>
           <div className="invisibleProject">
             <strong>{obj.title}</strong>
           </div>
+          <div className="visibleProject"><img src={obj.image} alt={obj.title} title={obj.title}/></div>
         </div>);
       });
 

@@ -10,8 +10,13 @@ import Projects from "./components/Projects.js";
 import Skills from "./components/Skills.js";
 import Contact from "./components/Contact.js";
 
+import Writing from "./components/Writing.js";
+import Websites from "./components/Websites.js";
+import Graphics from "./components/Graphics.js";
+import Podcast from "./components/Podcast.js";
+
 import skills from "./components/data/skills-data";
-import projects from "./components/data/projects-data";
+import websites from "./components/data/projects-data";
 
 class App extends React.Component {
   constructor(props) {
@@ -22,16 +27,12 @@ class App extends React.Component {
       show: skills,
       currentImg: '',
       currentAlt: '',
-      light: true,
-      //proWidth: 0,
       newProjects: true
     }
 
     this.changePage = this.changePage.bind(this);
     this.updateShow = this.updateShow.bind(this);
     this.updateImg = this.updateImg.bind(this);
-    this.updateTheme = this.updateTheme.bind(this);
-    //this.animateProgressBar = this.animateProgressBar.bind(this);
     this.updateProjects = this.updateProjects.bind(this);
   }
 
@@ -40,19 +41,19 @@ class App extends React.Component {
     if (change === 'minus' && pageNum !== 0) {
       this.setState({pageNum: pageNum - 1});
       this.updateShow(pageNum - 1);
-    } else if (change === 'plus' && pageNum < projects.length + 1) {
+    } else if (change === 'plus' && pageNum < websites.length + 1) {
       this.setState({pageNum: pageNum + 1});
       this.updateShow(pageNum + 1);
     }
   }
 
   updateShow(pageNum) {
-    if (pageNum === 0 || pageNum > projects.length) {
+    if (pageNum === 0 || pageNum > websites.length) {
       this.setState({show: skills});
     } else {
       const skillArray = skills.map((obj, i, array) => {
-        for (let j = 0; j < projects[pageNum - 1].tools.length; j++) {
-          if (array[i].skill === projects[pageNum - 1].tools[j]) {
+        for (let j = 0; j < websites[pageNum - 1].tools.length; j++) {
+          if (array[i].skill === websites[pageNum - 1].tools[j]) {
             return array[i];
           }
         }
@@ -81,46 +82,18 @@ class App extends React.Component {
     }
   }
 
-  updateTheme() {
-    this.setState({
-      light: !this.state.light
-    });
-  }
-
   updateProjects(value) {
     this.setState({ newProjects: value === 'true' });
   }
 
-  /*animateProgressBar() {
-    const body = document.querySelector('body');
-    let scrollDistance = -body.getBoundingClientRect().top;
-    let progressWidth = (scrollDistance /
-      (body.getBoundingClientRect().height -
-        document.documentElement.clientHeight)) *
-    100;
-    this.setState({
-      proWidth: progressWidth < 0 ? 0 : Math.floor(progressWidth)
-    });
-  }
-
-  componentDidMount() {
-    window.addEventListener('scroll', this.animateProgressBar);
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener('scroll', this.animateProgressBar);
-  }*/
-
   render() {
     const style = this.state.currentImg ? {zIndex: 50} : {zIndex: -1};
-    let mode = this.state.light ? 'light-' : 'dark-';
 
     const packageData = {
-      projects: projects,
+      projects: websites,
       changePage: this.changePage,
       pageNum: this.state.pageNum,
       updateImg: this.updateImg,
-      mode: mode,
       skills: this.state.show,
       style: style,
       currentImg: this.state.currentImg,
@@ -134,12 +107,15 @@ class App extends React.Component {
 
     return (
       <main>
-        {/*<div id="progressBar" style={{width: this.state.proWidth + '%'}}/>*/}
-        <Navbar light={this.state.light} updateTheme={this.updateTheme} mode={mode} />
+        <Navbar />
         <Routes>
-          <Route path={"/"} element={<About mode={mode} />} />
+          <Route path={"/"} element={<About />} />
           <Route path={"/projects"} element={this.state.newProjects ? <Projects data={packageData} projectSwitch={<ProjectSwitch proUpdaters={proUpdaters} />} /> : <Package data={packageData} proUpdaters={proUpdaters} />} />
-          <Route path={"/contact"} element={<Contact mode={mode} />} />
+          <Route path={"/contact"} element={<Contact />} />
+          <Route path={"/writing"} element={<Writing />} />
+          <Route path={"/websites"} element={<Websites />} />
+          <Route path={"/graphics"} element={<Graphics />} />
+          <Route path={"/podast"} element={<Podcast />} />
         </Routes>
       </main>
     );
@@ -148,10 +124,10 @@ class App extends React.Component {
 
 const Package = props => {
   return (
-    <div id="package" className={`${props.data.mode}package`}>
+    <div id="package" className="package">
       <ProjectSwitch proUpdaters={props.proUpdaters} />
-      <OldProjects projects={props.data.projects} changePage={props.data.changePage} pageNum={props.data.pageNum} fullImg={props.data.updateImg} mode={props.data.mode} />
-      <Skills skills={props.data.skills} mode={props.data.mode} />
+      <OldProjects projects={props.data.websites} changePage={props.data.changePage} pageNum={props.data.pageNum} fullImg={props.data.updateImg} />
+      <Skills skills={props.data.skills} />
       <div className="fullImg" onClick={() => props.data.updateImg('','')} style={props.data.style}><img src={props.data.currentImg} alt={props.data.currentAlt}/></div>
     </div>
   );

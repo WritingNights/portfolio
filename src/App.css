@@ -12,6 +12,34 @@ body {
   overscroll-behavior-y: none;
 }
 
+/*
+
+.libre-caslon-text-regular {
+  font-family: "Libre Caslon Text", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.libre-caslon-text-bold {
+  font-family: "Libre Caslon Text", serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.libre-caslon-text-regular-italic {
+  font-family: "Libre Caslon Text", serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.libre-caslon-display-regular {
+  font-family: "Libre Caslon Display", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+*/
+
 textarea {
   resize: none;
 }
@@ -37,10 +65,6 @@ textarea, input {
   align-items: center;
 }
 
-.content {
-  height: calc(100% - 3rem);
-}
-
 .column {
   flex-direction: column;
 }
@@ -49,32 +73,36 @@ textarea, input {
   flex-direction: row;
 }
 
-/*
-#progressBar {
+#collapseDiv {
+  height: 4rem;
+  width: 80%;
+  margin: 0 10%;
   position: fixed;
   top: 0;
-  left: 0;
-  height: 8px;
-  background: linear-gradient(to right, #ff5f6d, #ffc371);
-  width: 0;
-  z-index: 101;
-  transition: width 0.2s ease;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
 }
-*/
 
 #navbar {
   width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+  background-color: #1CA390;
+  box-shadow: inset 0 -3px 4px #00000044;
   color: white;
   z-index: 100;
   position: fixed;
   top: 0;
+  font-family: "Libre Caslon Text", serif;
+  font-weight: 700;
+  font-style: normal;
 }
 
 #nav-left {
-  height: calc(4em + 8px);
+  height: 4em;
   display: flex;
   flex-direction: row;
   padding-right: 10px;
@@ -92,14 +120,53 @@ textarea, input {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.light-navbar-left .leftLink, .dark-navbar-left .leftLink:hover, .dark-navbar-left .leftLink:focus {
   color: black;
 }
 
-.light-navbar-left .leftLink:hover, .light-navbar-left .leftLink:focus, .dark-navbar-left .leftLink {
-  color: white;
+#newLinks {
+  height: 5em;
+  width: 100%;
+  margin: 0 10%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.links {
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.link {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.center {
+  margin: 0 3%;
+  color: black;
+  text-decoration: none;
+  font-size: 1.2rem;
+}
+
+.podcast {
+  position: relative;
+}
+
+.podcast img {
+  position: absolute;
+  left: calc(50% + 2.5rem);
+  bottom: 0;
+}
+
+#collapse {
+  cursor: pointer;
 }
 
 .mode-container {
@@ -107,18 +174,11 @@ textarea, input {
   width: 35px;
   border-radius: 25px;
   margin: .5rem;
+  background-color: white;
   align-self: center;
   display: flex;
   justify-content: center;
-  align-items: center;
-}
-
-.light-mode-container {
-  background-color: white;
-}
-
-.dark-mode-container {
-  background-color: black;
+  justify-self: center;
 }
 
 .toggle {
@@ -129,16 +189,8 @@ textarea, input {
   justify-content: center;
   align-items: center;
   cursor: pointer;
-}
-
-.light-toggle {
   background-color: black;
   color: white;
-}
-
-.dark-toggle {
-  background-color: white;
-  color: black;
 }
 
 .toggle svg {
@@ -151,54 +203,26 @@ textarea, input {
   cursor: pointer;
 }
 
-#nav-right {
-  margin: 3px calc(1% - 2px);
-  padding: 2px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  position: relative;
+/* content top margin manager for all pages */
+
+.manager {
+  margin: 5rem 0 0 0;
 }
 
-.socialTopper {
-  padding: .5rem .5rem .25rem;
-  background-color: #ffffffec;
-  border-radius: .8rem;
-  box-shadow: 0 1px 3px #000000b8;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  cursor: pointer;
-  z-index: 6;
-}
+@media only screen
+  and (max-width: 812px) {
+    #newLinks {
+      height: 16rem;
+    }
 
-.socialActive {
-  background-color: #ccccccf6;
-}
+    .links {
+      flex-direction: column;
 
-.socialTopper span {
-  color: black;
-  font-size: .9rem;
-}
-
-#socials {
-  width: 75%;
-  padding-top: 1px;
-  transform: translateY(-1px);
-  background-color: #ffffffe6;
-  border-radius: 0 0 .5rem .5rem;
-  box-shadow: 0 1px 3px #00000088;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  position: absolute;
-  top: 4.2rem;
-  z-index: 5;
-}
-
-#socials a {
-  margin: .2rem 0;
-}
+    }
+    .manager {
+      margin: 16rem 0 0 0;
+    }
+  }
 
 /* about.js */
 
@@ -212,40 +236,8 @@ textarea, input {
   overflow: hidden;
 }
 
-#about::before {
-  content: "";
-  height: 130%;
-  width: 70%;
-  min-height: 40rem;
-  position: absolute;
-  top: -10%;
-  right: -30%;
-  transform: rotate(200deg);
-  background-color: #d4a967aa;
-  border-radius: 30% / 30%;
-  box-shadow: 0 0 5px #000000aa;
-}
-
-#about::after {
-  content: "";
-  height: 80%;
-  width: 130%;
-  min-width: 45rem;
-  position: absolute;
-  bottom: -50%;
-  left: -20%;
-  transform: rotate(-15deg);
-  background-color: #cd91bfbb;
-  border-radius: 40% / 40%;
-  box-shadow: 0 0 5px #000000aa;
-}
-
-.light-about {
+.about {
   background-color: transparent;
-}
-
-.dark-about {
-  background-color: rgb(43, 30, 30);
 }
 
 .container {
@@ -257,12 +249,10 @@ textarea, input {
 
 .aboutArt {
   width: 100%;
-  margin: 6rem 0;
+  margin: 2rem 0;
   padding: 1rem;
   position: relative;
-  background-color: #ffffff77;
-  backdrop-filter: blur(.25rem);
-  box-shadow: 1px 1px 11px #00000080;
+  /*backdrop-filter: blur(.25rem);*/
   border-radius: 5px;
   display: flex;
   flex-direction: row;
@@ -278,13 +268,14 @@ textarea, input {
 
 .aboutHead {
   max-width: 70%;
+  margin: 2rem 0;
   position: relative;
   font-family: 'Poppins', sans-serif;
   display: flex;
   justify-content: center;
 }
 
-.cityBack {
+#logo {
   height: 100%;
   width: 100%;
   min-width: 12rem;
@@ -305,38 +296,55 @@ textarea, input {
 }
 
 .aboutTags {
-  display: grid;
-  max-width: 35rem;
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  grid-template-columns: repeat(3, 1fr);
 }
 
 .aboutTag {
-  margin: .5rem;
-  padding: .3rem;
+  max-width: 35rem;
+  min-width: 17rem;
+  margin: .25rem;
+  border-radius: .25rem;
   display: grid;
   justify-items: center;
-  align-items: center;
   grid-gap: .5rem;
 }
 
-.leftTag {
-  grid-template-columns: 4.5rem auto;
+.aboutTag span {
+  max-width: 30rem;
 }
 
-.rightTag {
-  grid-template-columns: auto 4.5rem;
+.topTag {
+  padding: 2rem .5rem;
+  grid-template-rows: 6rem auto;
+  background-color: #FFA850;
+  box-shadow: 2px 2px 4px #00000088;
 }
 
-.resume {
-  font-size: 1rem;
-  border-radius: .2rem;
-  color: black;
-  text-decoration: none;
-  background-color: #00000066;
+.topTag svg {
+  align-self: center;
 }
 
-.resume:hover, .resume:focus {
-  outline: 1px solid black;
-  outline-offset: 2px;
+.bigTag {
+  width: calc(50% - .5rem);
+}
+
+@media screen
+and (max-width: 739px) {
+  .bigTag {
+    width: calc(100% - .5rem);
+  }
+
+  .smallTag {
+    width: calc(100% - .5rem);
+  }
+}
+
+.smallTag {
+  grid-column: 3 / 4;
 }
 
 /* project switcher */
@@ -353,14 +361,11 @@ textarea, input {
 
 #projects2 {
   min-height: 100vh;
+  background-color: white;
 }
 
-.light-newProjects {
+.newProjects {
   background-color: #f8f7f6;
-}
-
-.dark-newProjects {
-  background-color: #595959;
 }
 
 .projectsWrapper {
@@ -390,13 +395,9 @@ textarea, input {
   background-color: #00006666;
 }
 
-.light-filterButton {
+.filterButton {
   color: #606060;
   border: 2px solid #606060;
-}
-
-.dark-filterButton {
-  color: white;
 }
 
 .projectsDisplay {
@@ -404,9 +405,9 @@ textarea, input {
   width: auto;
   padding: .5rem 1.5rem;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   flex-wrap: wrap;
-  overflow-x: scroll;
+  overflow-y: scroll;
 }
 
 .projectsDisplay::-webkit-scrollbar {
@@ -414,53 +415,43 @@ textarea, input {
 }
 
 .projectCard {
-  height: 10rem;
-  width: 16rem;
-  margin: .5rem;
+  height: 15rem;
+  width: 24rem;
   position: relative;
   color: white;
-  box-shadow: 0 0 3px white;
   cursor: pointer;
 }
 
-.projectCard:focus {
-  outline: 2px solid black;
-  outline-offset: 5px;
+.projectCard:hover, .projectCard:focus {
+  outline: 2px solid red;
+  outline-offset: -2px;
+  z-index: 2;
 }
 
 .visibleProject {
-  height: 80%;
+  height: 100%;
   width: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
   background-color: #444444;
-  z-index: 2;
   border-radius: .3rem .3rem 0 0;
 }
 
 .visibleProject img {
-  height: 97%;
-  width: 97%;
-  margin: 1.5%;
+  height: 100%;
+  width: 100%;
+  /*margin: 1.5%;*/
 }
 
 .invisibleProject {
-  height: 80%;
-  width: 100%;
-  padding: .5rem;
   position: absolute;
+  padding: .5rem;
   bottom: 0;
   left: 0;
+  z-index: 10;
   background-color: #000000aa;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  border-radius: 0 0 .2rem .2rem;
 }
 
 .biggerCard {
-  height: 30rem;
+  height: 33rem;
   width: 25rem;
   padding: .5rem;
   color: white;
@@ -478,13 +469,15 @@ textarea, input {
 }
 
 .midBig {
-  display: grid;
-  grid-template-columns: 30% 70%;
+  padding: 5px 0 0 5px;
+  display: flex;
+  flex-direction: row;
   justify-items: center;
   align-items: flex-start;
 }
 
 .midBig img {
+  margin: 5px 0 5px 5px;
   max-width: 90%;
   cursor: pointer;
 }
@@ -539,12 +532,8 @@ textarea, input {
   flex-direction: row;
 }
 
-.light-package {
+.package {
   background-color: white;
-}
-
-.dark-package {
-  background-color: rgb(75, 85, 71);
 }
 
 #projects {
@@ -864,12 +853,8 @@ textarea, input {
   transform: rotate(-18deg);
 }
 
-.light-contact {
+.contact {
   background-color: transparent;
-}
-
-.dark-contact {
-  background-color: rgb(43, 30, 30);
 }
 
 .contactArt {

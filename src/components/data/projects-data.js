@@ -1,16 +1,16 @@
-import blog from "../projects/MernBlog.png";
-import amzn from "../projects/Amazon.png";
-import tic from "../projects/Tic-Tac-Toe.png";
-import univ from "../projects/Universal.png";
-import curr from "../projects/Currency.png";
-import network from "../projects/Network.png";
-import mail from "../projects/Mail.png";
-import comm from "../projects/Commerce.png";
-import wiki from "../projects/Wiki.png";
-import goog from "../projects/Search.png";
-import mine from "../projects/Minesweeper.png";
+import blog from "../Websites/MernBlog.png";
+import amzn from "../Websites/Amazon.png";
+import tic from "../Websites/Tic-Tac-Toe.png";
+import univ from "../Websites/Universal.png";
+import curr from "../Websites/Currency.png";
+import network from "../Websites/Network.png";
+import mail from "../Websites/Mail.png";
+import comm from "../Websites/Commerce.png";
+import wiki from "../Websites/Wiki.png";
+import goog from "../Websites/Search.png";
+import mine from "../Websites/Minesweeper.png";
 
-const projects = [
+const websites = [
     {
       title: 'Currency (CS50x final)',
       tools: ['HTML', 'CSS', 'Python', 'Flask'],
@@ -143,4 +143,4 @@ const projects = [
     }
   ];
 
-export default projects;
+export default websites;
