@@ -39,7 +39,7 @@ class Contact extends React.Component {
 
   render() {
     return (
-      <section id="contact" className={`${this.props.mode}contact`}>
+      <section id="Contact" className={`${this.props.collapsed ? 'no-' : ''}manager`}>
         <div className="bar1"/>
         <div className="bar2"/>
         <article className="contactArt">

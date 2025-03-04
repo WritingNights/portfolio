@@ -1,6 +1,6 @@
 export default function Websites(props) {
   return (
-    <section className="manager">
+    <section id="Websites" className={`${props.collapsed ? 'no-' : ''}manager`}>
     </section>
   );
 }

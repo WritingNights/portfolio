@@ -4,7 +4,7 @@ import logo from "./icons/Logo.png";
 
 export default function About(props) {
   return (
-    <section id="about" className="about manager anchor">
+    <section id="Home" className={`${props.collapsed ? 'no-' : ''}manager about anchor`}>
       <div className="container">
         <article className="aboutArt">
           <header className="aboutHead">

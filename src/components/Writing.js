@@ -1,6 +1,6 @@
 export default function Writing(props) {
   return (
-    <section className="manager">
+    <section id="Writing" className={`${props.collapsed ? 'no-' : ''}manager`}>
     </section>
   );
 }
