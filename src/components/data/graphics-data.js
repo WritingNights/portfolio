@@ -1,3 +1,13 @@
 import crooked from "../Graphics/Crooked Candle.png";
+import crookedThumb from "../Graphics/Sticker.png";
 
-export default crooked;
+const graphics = [
+  {
+    title: 'Crooked Candle',
+    tools: ['Figma'],
+    image: crooked,
+    thumbnail: crookedThumb
+  }
+];
+
+export default graphics;

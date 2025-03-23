@@ -22,20 +22,18 @@ class Projects extends React.Component {
         </div>);
       });
 
-    const { mode } = this.props.data;
-
     const bigStyle = this.state.focus ? { zIndex: 45 } : { zIndex: -1 };
     const { focus } = this.state;
 
-    return (<section id="projects2" className={`${mode}newProjects`}>
+    return (<section id="projects2" className="newProjects">
       <div className="projectsWrapper">
         <div className="filterWrapper">
           {this.props.data.skills.map((obj, i) => {
             return (
-              <button key={i} className={`${mode}filterButton filterButton`} style={this.state.filter === obj.skill ? {backgroundColor: '#00000044'} : {}} onClick={() => this.setState({ filter: obj.skill })}>{obj.skill}</button>
+              <button key={i} className="filterButton" style={this.state.filter === obj.skill ? {backgroundColor: '#00000044'} : {}} onClick={() => this.setState({ filter: obj.skill })}>{obj.skill}</button>
             );
           })}
-          <button className={`${mode}filterButton filterButton`} onClick={() => this.setState({ filter: null })}>Reset</button>
+          <button className="filterButton" onClick={() => this.setState({ filter: null })}>Reset</button>
         </div>
         <div className="projectsDisplay">
           {projects.length > 0 ? projects : <div>Nothing found in portfolio</div>}

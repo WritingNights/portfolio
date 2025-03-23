@@ -4,7 +4,7 @@ import logo from "./icons/Logo.png";
 
 export default function About(props) {
   return (
-    <section id="Home" className={`${props.collapsed ? 'no-' : ''}manager about anchor`}>
+    <section id="home" className={`${props.collapsed ? 'no-' : ''}manager about anchor`}>
       <div className="container">
         <article className="aboutArt">
           <header className="aboutHead">
@@ -36,16 +36,9 @@ export default function About(props) {
                 Before all that, I had an even more “from all over” set of experiences that lead to my <strong>success as a developer</strong>. These experiences fueled my desire for <strong>accessibility standards</strong>, opened my mind to <strong>complex and scalable designs</strong>, and developed my <strong>logical thinking</strong>.
               </span>
             </div>
-            <div className="topTag aboutTag smallTag">
-              <svg xmlns="http://www.w3.org/2000/svg" width="6rem" height="6rem" viewBox="0 0 48 48" fill="none">
-                <path fill="#1CA390" stroke="#12685C" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" d="M32 42C27.2639 44.7064 21 44.5 16 42C11 39.5 7 34 7 29.5C7 26.8769 11.3562 24.9696 13.1956 24.2812C13.6561 24.1089 13.9462 23.641 13.8732 23.1548L11.5864 7.90928C11.2777 5.85104 12.8717 4 14.953 4C16.6877 4 18.1449 5.3043 18.3365 7.02835L20 22L20.8301 6.22926C20.9253 4.41897 22.421 3 24.2338 3C26.2502 3 27.8259 4.74108 27.6252 6.74756L26.5866 17.1341C26.7087 15.9225 27.7286 15 28.9466 15C31.1852 15 33 16.8148 33 19.0534L33 21.5C33 19.567 34.567 18 36.5 18C38.433 18 40 19.567 40 21.5V32.1489C40 32.7149 39.9472 33.2807 39.7471 33.8102C39.1514 35.387 37.2872 38.9788 32 42Z"/>
-              </svg>
-              <span>
-               I have <strong>2 years</strong> of development <strong>experience</strong>.
-              </span>
-            </div>
           </section>
         </article>
+        {props.counters}
       </div>
     </section>
   );

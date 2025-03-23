@@ -10,6 +10,12 @@ import wiki from "../Websites/Wiki.png";
 import goog from "../Websites/Search.png";
 import mine from "../Websites/Minesweeper.png";
 
+import xo from "../icons/XO.png";
+import bomb from "../icons/Bomb.png";
+
+import xothumb from "../thumbnails/XO thumbnail.png";
+import minethumb from "../thumbnails/Minesweeper thumbnail.png";
+
 const websites = [
     {
       title: 'Currency (CS50x final)',
@@ -95,7 +101,10 @@ const websites = [
     },
     {
       title: 'Tic-Tac-Toe',
+      game: true,
       tools: ['HTML', 'CSS', 'JavaScript', 'React'],
+      thumbnail: xothumb,
+      icon: xo,
       image: tic,
       description: [
         'This was the first project I completed on my own in React after creating my React portfolio.',
@@ -130,8 +139,11 @@ const websites = [
       youtubeLink: null
     },
     {
-      title: 'Mix-Up Minesweeper',
+      title: 'Minesweeper',
+      game: true,
       tools: ['HTML', 'CSS', 'JavaScript', 'React', 'GSAP'],
+      thumbnail: minethumb,
+      icon: bomb,
       image: mine,
       description: [
         'I took on the logical challenge that is minesweeper. From placing random mines to filling the numbers on the board, and even as far as the difference between blank, flagged, and clicked.',

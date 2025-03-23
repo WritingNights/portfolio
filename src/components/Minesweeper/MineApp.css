@@ -1,0 +1,370 @@
+body {
+  background-color: #77c292;
+}
+
+main {
+  height: calc(100vh - 3rem);
+  position: relative;
+}
+
+#coverScreen {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 30;
+  font-size: 8vw;
+  text-align: center;
+  font-family: 'Passion One', cursive;
+  font-weight: bold;
+  background-color: #77c292;
+}
+
+/* Playing Field */
+
+.boardContainer {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: default;
+}
+
+#playField {
+  margin: 1px auto 0;
+  position: relative;
+}
+
+.cover {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.fieldRow {
+  display: grid;
+}
+
+.fieldUnit {
+  background-color: #abce4c;
+  outline: 1px solid black;
+  aspect-ratio: 1 / 1;
+  text-align: center;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.fieldRow:nth-child(odd) .visible:nth-child(odd),
+.fieldRow:nth-child(even) .visible:nth-child(even) {
+  background-color: #c09c6c;
+}
+
+.fieldRow:nth-child(odd) .visible:nth-child(even),
+.fieldRow:nth-child(even) .visible:nth-child(odd) {
+  background-color: #a1835b;
+}
+
+/* Navbar */
+
+.navMid {
+  perspective: 20rem;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.navMid > div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+/* Controls */
+
+#controls {
+  height: 4rem;
+  width: 26%;
+  min-width: 18rem;
+  margin-top: 1rem;
+  padding: .25rem;
+  display: flex;
+  flex-direction: row;
+  background-color: #1CA390;
+  overflow-y: hidden;
+  box-shadow: 0 0 2px #0008;
+}
+
+.controlInput {
+  margin: 0 .3rem;
+  display: grid;
+  grid-template-columns: 1.7rem 1.7rem;
+  grid-template-rows: 1fr 1fr;
+  justify-items: center;
+  align-items: center;
+}
+
+.adjustor {
+  height: 95%;
+  width: 100%;
+  padding: .2rem;
+  grid-column: 1 / 3;
+  background-color: white;
+  border-radius: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.adjustor > * {
+  cursor: pointer;
+}
+
+.adjustor > *:hover {
+  transform: scale(1.1);
+}
+
+.newBtn {
+  padding: .5rem;
+  font-weight: bolder;
+  font-size: .8rem;
+  cursor: pointer;
+}
+
+/* NavBotom */
+
+#bottomNav {
+  width: 100%;
+  min-width: 20.5rem;
+  max-width: 25rem;
+  background-color: #FFA850;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: flex-start;
+  box-shadow: inset 0 0 5px #000000aa;
+}
+
+.botTag {
+  height: 3.5rem;
+  min-width: 6.5rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+}
+
+.botTag:not(:last-child) div {
+  width: 90%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.toolControls {
+  height: 2.3rem;
+  margin: 0 2px;
+  aspect-ratio: 1 / 1;
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.toolControls:hover {
+  background-color: #aaa;
+}
+
+/* Highscores */
+
+.highscores {
+  position: fixed;
+  top: 4rem;
+  right: -8rem;
+  display: flex;
+  flex-direction: row;
+}
+
+.showTab {
+  right: 0;
+}
+
+.pullTag {
+  height: 8rem;
+  width: 3rem;
+  margin-top: 1rem;
+  background-color: #4b80b9;
+  border-radius: .75rem 0 0 .75rem;
+  border: 4px solid #619ee5;
+  border-right: none;
+  box-shadow: 0 1px 2px #000b;
+  writing-mode: vertical-lr;
+  font-variant: small-caps;
+  font-weight: bold;
+  font-size: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.scores {
+  min-height: 10rem;
+  width: 8rem;
+  padding: .25rem 0;
+  background-color: #8fb4dc;
+  border-radius: .5rem 0 0 .5rem;
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: flex-end;
+  align-items: center;
+  box-shadow: 0 1px 2px #000b;
+  cursor: default;
+  position: relative;
+}
+
+.scores span {
+  margin: .05rem;
+  cursor: pointer;
+}
+
+.scores span:last-child {
+  color: gold;
+  font-weight: bold;
+  font-size: 1.8rem;
+}
+
+.scores span:nth-last-child(2) {
+  color: silver;
+  font-weight: bold;
+  font-size: 1.6rem;
+}
+
+.scores span:nth-last-child(3) {
+  color: brown;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.scoreKeeper {
+  height: 100%;
+  width: 100%;
+  padding-top: .75rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: #8fb4dc;
+  overflow: hidden;
+}
+
+#keeperCloser {
+  position: absolute;
+  top: 0;
+  left: 0;
+  cursor: pointer;
+}
+
+.highGuide {
+  min-height: 6rem;
+  width: 3rem;
+  position: absolute;
+  bottom: -8rem;
+  left: 8rem;
+  background-color: #fffa;
+  justify-items: center;
+  align-items: center;
+  border-radius: .25rem 0 0 .25rem;
+  display: grid;
+  grid-template-rows: repeat(2, 50%);
+}
+
+/* Guide */
+
+#guide {
+  min-height: 10rem;
+  width: 3rem;
+  position: absolute;
+  top: 4rem;
+  left: 0;
+  background-color: #fffa;
+  justify-items: center;
+  align-items: center;
+  border-radius: 0 .25rem .25rem 0;
+}
+
+.guideMain {
+  display: grid;
+  grid-template-rows: repeat(6, 1fr);
+}
+
+.shiftGuide {
+  display: grid;
+  grid-template-rows: repeat(5, 20%);
+}
+
+#guide div, .highGuide div {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.largeBack {
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+.midBack {
+  margin: .4rem 0;
+  text-align: center;
+  font-size: 1.6rem;
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#guide div div:nth-child(1), .highGuide div div:nth-child(1) {
+  color: #6669
+}
+
+#guide > div div:nth-child(2), .highGuide > div div:nth-child(2) {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  text-shadow: 0 0 5px #fff;
+  text-align: center;
+  font-size: .8rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+}
+
+/* media queries */
+
+@media only screen
+  and (min-width: 813px) {
+
+  }

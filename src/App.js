@@ -2,20 +2,17 @@ import React from 'react';
 import './App.css';
 import { Routes, Route } from "react-router-dom";
 import gsap from "gsap";
-
-import Home from "./components/Home.js";
-import ProjectSwitch from "./components/ProjectSwitch.js";
-import OldProjects from "./components/OldProjects.js";
-import Projects from "./components/Projects.js";
-import Skills from "./components/Skills.js";
-
+import moment from "moment";
 
 import Navbar from "./components/Navbar.js";
 
+import Home from "./components/Home.js";
 import Writing from "./components/Writing.js";
 import Websites from "./components/Websites.js";
 import Graphics from "./components/Graphics.js";
 import Podcast from "./components/Podcast.js";
+import Template from "./components/Template.js";
+import Game from "./components/Games.js"
 
 import Footer from "./components/Footer.js";
 import Contact from "./components/Contact.js";
@@ -35,26 +32,15 @@ class App extends React.Component {
       newProjects: true,
       collapsed: false,
       fixed: false,
-      page: 'Home'
+      page: window.location.pathname.split('/')[1] ? window.location.pathname.split('/')[1] : 'home',
+      codeCount: {years: 0, months: 0, days: 0},
+      writeCount: {years: 0, months: 0, days: 0}
     }
 
-    this.changePage = this.changePage.bind(this);
     this.updateShow = this.updateShow.bind(this);
-    this.updateImg = this.updateImg.bind(this);
-    this.updateProjects = this.updateProjects.bind(this);
     this.collapse = this.collapse.bind(this);
-    this.changePage = this.changePage.bind(this);
-  }
-
-  changePage(change) {
-    const { pageNum } = this.state;
-    if (change === 'minus' && pageNum !== 0) {
-      this.setState({pageNum: pageNum - 1});
-      this.updateShow(pageNum - 1);
-    } else if (change === 'plus' && pageNum < websites.length + 1) {
-      this.setState({pageNum: pageNum + 1});
-      this.updateShow(pageNum + 1);
-    }
+    this.updatePage = this.updatePage.bind(this);
+    this.countUp = this.countUp.bind(this);
   }
 
   updateShow(pageNum) {
@@ -78,32 +64,14 @@ class App extends React.Component {
     }
   }
 
-  updateImg(img, alt) {
-    if (img) {
-      this.setState({
-        currentImg: img,
-        currentAlt: alt
-      })
-    } else {
-      this.setState({
-        currentImg: '',
-        currentAlt: ''
-      })
-    }
-  }
-
-  updateProjects(value) {
-    this.setState({ newProjects: value === 'true' });
-  }
-
   collapse() {
-    const { collapsed, fixed, page } = this.state;
+    const { collapsed, fixed } = this.state;
     if (collapsed) {
       gsap.fromTo('#collapseDiv', {transform: 'translateY(0)'}, {transform: 'translateY(-110%)', duration: 1, ease: 'power3.out', onComplete: () => this.setState({ collapsed: !collapsed })});
       gsap.fromTo('#collapseDiv', {transform: 'translateY(-110%)'}, {transform: 'translateY(0)', duration: 1, ease: 'power3.out', delay: 1});
     } else {
       if (!fixed) {
-        gsap.fromTo(`#${page}`, {transform: 'translateY(0)'}, {transform: 'translateY(-5rem)', duration: 1, ease: 'power3.out', onComplete: () => {gsap.set(`#${page}`, { clearProps: 'transform' })}});
+        gsap.fromTo(`main > section`, {transform: 'translateY(0)'}, {transform: 'translateY(-5rem)', duration: 1, ease: 'power3.out', onComplete: () => {gsap.set(`main > section`, { clearProps: 'transform' })}});
       }
       gsap.fromTo('#navbar', {transform: 'translateY(0)'}, {transform: 'translateY(-110%)', duration: 1, ease: 'power3.out', onComplete: () => this.setState({ collapsed: !collapsed })});
       gsap.fromTo('#navbar', {transform: 'translateY(-110%)'}, {transform: 'translateY(0)', duration: 1, ease: 'power3.out', delay: 1});
@@ -114,6 +82,15 @@ class App extends React.Component {
     this.setState({page: page});
   }
 
+  countUp(date) {
+    const start = moment(date);
+    const now = moment();
+
+    const diff = moment.duration(now.diff(start))._data;
+
+    return ({years: diff.years, months: diff.months, days: diff.days});
+  }
+
   handleScroll = () => {
     const scrollPosition = window.scrollY;
     const { collapsed, fixed } = this.state;
@@ -122,11 +99,11 @@ class App extends React.Component {
         this.setState({fixed: true});
         gsap.fromTo('#navbar', {transform: 'translateY(-100%)'}, {transform: 'translateY(0)', duration: 2, ease: 'power3.out'});
       }
-      if (scrollPosition < 10 && fixed) {
-        this.setState({fixed: false});
-      }
     }
-  };
+    if (scrollPosition < 10 && fixed) {
+      this.setState({fixed: false});
+    }
+  }
 
   componentDidMount() {
     window.addEventListener('scroll', this.handleScroll);
@@ -137,53 +114,65 @@ class App extends React.Component {
   }
 
   render() {
-    const style = this.state.currentImg ? {zIndex: 50} : {zIndex: -1};
-
-    const packageData = {
+    /*const packageData = {
       projects: websites,
-      changePage: this.changePage,
-      pageNum: this.state.pageNum,
       updateImg: this.updateImg,
       skills: this.state.show,
-      style: style,
       currentImg: this.state.currentImg,
       currentAlt: this.state.currentAlt
-    };
+    };*/
 
     const { collapsed, fixed } = this.state;
 
-    const proUpdaters = {
-      updateProjects: this.updateProjects,
-      newProjects: this.state.newProjects
-    }
-
     return (
       <main>
-        <Navbar changePage={this.changePage} collapse={this.collapse} collapsed={collapsed} fixed={fixed} />
+        <Navbar updatePage={this.updatePage} collapse={this.collapse} collapsed={collapsed} fixed={fixed} />
         <Routes>
-          <Route path={"/"} element={<Home collapsed={collapsed} />} />
-          <Route path={"/projects"} element={this.state.newProjects ? <Projects data={packageData} projectSwitch={<ProjectSwitch proUpdaters={proUpdaters} />} /> : <Package data={packageData} proUpdaters={proUpdaters} />} />
+          <Route path={"/"} element={<Home collapsed={collapsed} counters={<Counters countUp={this.countUp} />} />} />
           <Route path={"/contact"} element={<Contact collapsed={collapsed} />} />
           <Route path={"/writing"} element={<Writing collapsed={collapsed} />} />
-          <Route path={"/websites"} element={<Websites collapsed={collapsed} />} />
+          <Route path={"/websites"} element={<Websites collapsed={collapsed} websites={websites} />} />
+          <Route path={"/websites/game/:item"} element={<Game collapsed={collapsed} websites={websites} />} />
+          <Route path={"/websites/:item"} element={<Template collapsed={collapsed} />} />
           <Route path={"/graphics"} element={<Graphics collapsed={collapsed} />} />
+          <Route path={"/graphics/:item"} element={<Template collapsed={collapsed} />} />
           <Route path={"/podcast"} element={<Podcast collapsed={collapsed} />} />
         </Routes>
-        <Footer changePage={this.changePage} />
+        <Footer updatePage={this.updatePage} />
       </main>
     );
   }
 }
 
-const Package = props => {
+const Counter = (props) => {
+  const obj = props.countUp(props.date);
+
   return (
-    <div id="package" className="package">
-      <ProjectSwitch proUpdaters={props.proUpdaters} />
-      <OldProjects projects={props.data.websites} changePage={props.data.changePage} pageNum={props.data.pageNum} fullImg={props.data.updateImg} />
-      <Skills skills={props.data.skills} />
-      <div className="fullImg" onClick={() => props.data.updateImg('','')} style={props.data.style}><img src={props.data.currentImg} alt={props.data.currentAlt}/></div>
+    <div className="count-body">
+      <h2>Days since I started to {props.label}</h2>
+      <div className="counts">
+        <div className="container-years">
+          <h3 className="year">{obj.years}</h3>
+          <h3 className="count-label">{obj.years === 1 ? 'Year' : 'Years'}</h3>
+        </div>
+        <div className="container-months">
+          <h3 className="month">{obj.months}</h3>
+          <h3 className="count-label">{obj.months === 1 ? 'Month' : 'Months'}</h3>
+        </div>
+        <div className="container-days">
+          <h3 className="day">{obj.days}</h3>
+          <h3 className="count-label">{obj.days === 1 ? 'Day' : 'Days'}</h3>
+        </div>
+      </div>
     </div>
   );
+}
+
+const Counters = (props) => {
+  return (<div>
+    <Counter label={"code"} countUp={props.countUp} date={'2020-05-11 00:00:00'} />
+    <Counter label={"write"} countUp={props.countUp} date={'2015-07-25 00:00:00'} />
+  </div>);
 }
 
 export default App;
