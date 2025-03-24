@@ -1,13 +1,15 @@
 import { Link } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 import Minesweeper from "./Minesweeper.js";
 
 function Game(props) {
-  const link = window.location.pathname.split('/')[1];
+  const location = useLocation();
+  const { obj, link } = location.state;
+
   const games = props.websites.filter(
     obj => obj.game
   );
-  const obj = games.filter(obj => obj.title === window.location.pathname.split('/')[3])[0];
   return (
     <section id="template" className="manager">
       <div className="gameNav">
@@ -17,7 +19,11 @@ function Game(props) {
           </svg>
         </Link>
         {games.map((obj, i) => {
-          return (obj.title !== window.location.pathname.split('/')[3] ? <Link to={`/websites/game/${obj.title}`} className="gameLink" key={i} onClick={() => this.forceUpdate()}>{obj.title}</Link> : <span className="gameLink" key={i}><img src={obj.icon} alt="thumbnail" style={{ width: "1rem" }} />&nbsp;{obj.title}</span>);
+          return (obj.title !== window.location.pathname.split('/')[3] ? <Link to={`/websites/game/${obj.title}`} className="gameLink" state={{ obj: obj, link: 'websites' }} key={i}>
+            {obj.title}
+          </Link> : <span className="gameLink" key={i}>
+            <img src={obj.icon} alt="thumbnail" style={{ width: "1rem" }} />&nbsp;{obj.title}
+          </span>);
         })}
       </div>
       {obj.title === "Minesweeper" ? <Minesweeper /> : 'Tic-Tac-Toe'}

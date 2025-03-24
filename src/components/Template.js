@@ -2,9 +2,7 @@ import { Link, useLocation } from "react-router-dom";
 
 function Template(props) {
   const location = useLocation();
-  console.log(location.state.obj);
   const { obj, link } = location.state || {};
-  console.log(obj);
   return (
     <section id="template" className="manager">
       <div className="templateOverlay">

@@ -405,10 +405,42 @@ and (max-width: 739px) {
   flex-direction: row;
 }
 
+.thumbCont {
+  position: relative;
+  aspect-ratio: 1 / 1;
+}
+
+.graphicsCard:hover .graphicThumb, .graphicsCard:focus .graphicThumb {
+  transform: skewX(-4deg) translate(-1.25rem, -1rem);
+  transition: .5s ease;
+}
+
 .graphicThumb {
-  width: 50%;
+  width: 100%;
+  aspect-ratio: 1 / 1;
   min-width: 8rem;
   max-width: 15rem;
+  position: relative;
+  transition: .5s ease;
+  z-index: 1;
+}
+
+.graphicsCard:hover .shadow, .graphicsCard:focus .shadow {
+  transform: translate(-.5rem, -.25rem);
+  transition: .5s ease;
+  background-color: #000000bb;
+}
+
+.shadow {
+  height: 95%;
+  aspect-ratio: 1 / 1;
+  position: absolute;
+  bottom: 2.5%;
+  right: 2.5%;
+  border-radius: 50%;
+  background-color: #000000dd;
+  filter: blur(0px);
+  transition: .5s ease;
 }
 
 .graphicLinkTitle {

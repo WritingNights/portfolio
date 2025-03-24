@@ -1,10 +1,7 @@
-body {
-  background-color: #77c292;
-}
-
-main {
+#minesweeperMain {
   height: calc(100vh - 3rem);
   position: relative;
+  background-color: #77c292;
 }
 
 #coverScreen {

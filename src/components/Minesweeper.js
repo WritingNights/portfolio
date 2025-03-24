@@ -77,7 +77,7 @@ class Minesweeper extends React.Component {
   }
 
   render() {
-    return (<main>
+    return (<main id="minesweeperMain">
       <div id="coverScreen" style={this.state.cover ? { display: 'flex' } : { display: 'none' }}>Minesweeper</div>
       <Game newScore={this.newScore} />
       <Highscores highscores={this.state.highscores} showTab={this.state.showTab} toggleTab={this.toggleTab} />
