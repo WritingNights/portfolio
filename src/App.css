@@ -507,10 +507,10 @@ and (max-width: 739px) {
 }
 
 .shadow {
-  height: 95%;
+  width: 95%;
   aspect-ratio: 1 / 1;
   position: absolute;
-  bottom: 2.5%;
+  top: 2.5%;
   right: 2.5%;
   border-radius: 50%;
   background-color: #000000dd;
