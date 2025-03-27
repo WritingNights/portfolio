@@ -10,8 +10,19 @@ export default function About(props) {
           <header className="aboutHead">
             <img src={logo} alt="Daniel Jones tree/book logo" id="logo"/>
           </header>
+          <div className="chasm">
+            <div className="chasmLeft">
+              <div className="brAndSh">
+                <div className="bridge"/>
+                <div className="shadow1"/>
+              </div>
+            </div>
+            <div className="chasmRight">
+              <div className="shadow2" style={{ transform: `rotateZ(${Math.floor(70 * (1 - (window.innerWidth / 1440))) + 10}deg)` }}/>
+            </div>
+          </div>
           <section className="aboutTags">
-            <div className="topTag aboutTag bigTag">
+            <div className="aboutTag">
               <svg xmlns="http://www.w3.org/2000/svg" width="6rem" height="6rem" viewBox="0 0 512 512">
                 <path fill="#1CA390" d="M496.17,15.836L96.635,291.839l-69.904-56.198c-17.658-14.197-13.07-42.23,8.194-50.055  L496.17,15.836z"/>
                 <path fill="#12685C" d="M96.636,307.667c-3.52,0-7.032-1.171-9.919-3.491l-69.904-56.199  c-12.798-10.289-18.854-26.105-16.2-42.308c2.653-16.205,13.435-29.265,28.846-34.936L490.705,0.983  c7.48-2.748,15.844,0.491,19.514,7.564c3.672,7.078,1.507,15.779-5.053,20.31L105.629,304.861  C102.916,306.737,99.771,307.667,96.636,307.667z M384.332,73.859L40.389,200.438c-6.576,2.42-8.162,8.038-8.54,10.343  c-0.377,2.303-0.665,8.137,4.796,12.525l60.703,48.803L384.332,73.859z"/>
@@ -23,17 +34,17 @@ export default function About(props) {
                 </g>
               </svg>
               <span>
-                My <strong>personal website</strong> started it all. <strong>freeCodeCamp</strong> gave me baby steps. <strong>HarvardX</strong> tested my ability. <strong>CS college courses</strong> solidified the knowledge. <strong>Personal projects</strong> (including accessible minesweeper) dialed it all in. And <strong>unbreakable drive</strong> pushed me through.
+                My personal website started it all. freeCodeCamp gave me baby steps. HarvardX tested my ability. CS college courses solidified the knowledge. Personal projects (including accessible minesweeper) dialed it all in. And unbreakable drive pushed me through.
               </span>
             </div>
-            <div className="topTag aboutTag bigTag">
+            <div className="aboutTag">
               <svg xmlns="http://www.w3.org/2000/svg" width="6rem" height="6rem" viewBox="0 0 32 32">
               <path fill="#1CA390" stroke="#12685C" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"strokeMiterlimit="10" d="M26.5,14.1C26,14,25.4,14.4,24.9,15V9.7C24.9,6,21.8,3,18,3h-1c-1.7,0-3.2,0.6-4.4,1.6C12,4.2,11.3,4,10.6,4  C8.7,4,7.1,5.5,7.1,7.3V15c-0.5-0.7-1.1-1.1-1.6-1c-1.1,0.2-1.7,2-1.4,4.1c0.4,2.1,1.5,3.7,2.7,3.5c0.4-0.1,0.6-0.3,0.9-0.6  c1.2,4.6,4.5,8,8.4,8c3.9,0,7.1-3.3,8.4-8c0.2,0.3,0.5,0.6,0.9,0.6c1.1,0.2,2.3-1.4,2.7-3.5C28.3,16.1,27.6,14.2,26.5,14.1z"/>
               <path fill="yellow" stroke="#12685C" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"strokeMiterlimit="10" d="M20,13c0-2.2-1.8-4-4-4s-4,1.8-4,4c0,1.5,0.8,2.8,2,3.4V19h4v-2.6C19.2,15.8,20,14.5,20,13z"/>
               <path fill="#1CA390" stroke="#12685C" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"strokeMiterlimit="10" d="M18,21c0,1.1-0.9,2-2,2s-2-0.9-2-2"/>
               </svg>
               <span>
-                Before all that, I had an even more “from all over” set of experiences that lead to my <strong>success as a developer</strong>. These experiences fueled my desire for <strong>accessibility standards</strong>, opened my mind to <strong>complex and scalable designs</strong>, and developed my <strong>logical thinking</strong>.
+                Before all that, I had an even more “from all over” set of experiences that lead to my success as a developer. These experiences fueled my desire for accessibility standards, opened my mind to complex and scalable designs, and developed my logical thinking.
               </span>
             </div>
           </section>

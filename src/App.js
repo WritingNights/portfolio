@@ -15,7 +15,7 @@ import Template from "./components/Template.js";
 import Game from "./components/Games.js"
 
 import Footer from "./components/Footer.js";
-import Contact from "./components/Contact.js";
+import AboutMe from "./components/AboutMe.js";
 
 import skills from "./components/data/skills-data";
 import websites from "./components/data/projects-data";
@@ -34,34 +34,20 @@ class App extends React.Component {
       fixed: false,
       page: window.location.pathname.split('/')[1] ? window.location.pathname.split('/')[1] : 'home',
       codeCount: {years: 0, months: 0, days: 0},
-      writeCount: {years: 0, months: 0, days: 0}
+      writeCount: {years: 0, months: 0, days: 0},
+      contactForm: false,
+      formName: '',
+      formEmail: '',
+      formMessage: ''
     }
 
-    this.updateShow = this.updateShow.bind(this);
     this.collapse = this.collapse.bind(this);
     this.updatePage = this.updatePage.bind(this);
     this.countUp = this.countUp.bind(this);
-  }
-
-  updateShow(pageNum) {
-    if (pageNum === 0 || pageNum > websites.length) {
-      this.setState({show: skills});
-    } else {
-      const skillArray = skills.map((obj, i, array) => {
-        for (let j = 0; j < websites[pageNum - 1].tools.length; j++) {
-          if (array[i].skill === websites[pageNum - 1].tools[j]) {
-            return array[i];
-          }
-        }
-        return undefined;
-      });
-      // eslint-disable-next-line
-      this.setState({show: skillArray.filter((element) => {
-        if (element !== undefined) {
-          return element;
-        }
-      })});
-    }
+    this.contact = this.contact.bind(this);
+    this.encode = this.encode.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.updateState = this.updateState.bind(this);
   }
 
   collapse() {
@@ -89,6 +75,45 @@ class App extends React.Component {
     const diff = moment.duration(now.diff(start))._data;
 
     return ({years: diff.years, months: diff.months, days: diff.days});
+  }
+
+//    gsap.fromTo('.actualForm', {transform: 'translateY(-50%)', opacity: 0}, {transform: 'translateY(0)', opacity: 1, duration: 1, ease: 'power3.out'});
+
+  contact(active) {
+    this.setState({ contactForm: active });
+    if (active) {
+      window.addEventListener('click', this.handleClick);
+    }
+  }
+
+  encode(data) {
+    return Object.keys(data).map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key])).join("&");
+  }
+
+  handleSubmit(e) {
+    const { name, email, message } = this.state;
+    e.preventDefault();
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: this.encode({ "form-name": "contact", name, email, message })
+    })
+      .then(() => {
+        this.setState({name: '', email: '', message: ''});
+        alert("Message sent!");
+      })
+      .catch(error => alert(error));
+  }
+
+  updateState(key, value) {
+    this.setState({ [key]: value });
+  }
+
+  handleClick = (e) => {
+    if (e.target.className === 'contactForm') {
+      window.removeEventListener('click', this.handleClick);
+      this.contact(false);
+    }
   }
 
   handleScroll = () => {
@@ -122,14 +147,15 @@ class App extends React.Component {
       currentAlt: this.state.currentAlt
     };*/
 
-    const { collapsed, fixed } = this.state;
+    const { collapsed, fixed, formName, formEmail, formMessage } = this.state;
 
     return (
       <main>
+        {this.state.contactForm ? <Contact handleSubmit={this.handleSubmit} contact={this.contact} updateState={this.updateState} name={formName} email={formEmail} message={formMessage} /> : ''}
         <Navbar updatePage={this.updatePage} collapse={this.collapse} collapsed={collapsed} fixed={fixed} />
         <Routes>
           <Route path={"/"} element={<Home collapsed={collapsed} counters={<Counters countUp={this.countUp} />} />} />
-          <Route path={"/contact"} element={<Contact collapsed={collapsed} />} />
+          <Route path={"/about-me"} element={<AboutMe collapsed={collapsed} />} />
           <Route path={"/writing"} element={<Writing collapsed={collapsed} />} />
           <Route path={"/websites"} element={<Websites collapsed={collapsed} websites={websites} />} />
           <Route path={"/websites/game/:item"} element={<Game collapsed={collapsed} websites={websites} />} />
@@ -138,7 +164,7 @@ class App extends React.Component {
           <Route path={"/graphics/:item"} element={<Template collapsed={collapsed} />} />
           <Route path={"/podcast"} element={<Podcast collapsed={collapsed} />} />
         </Routes>
-        <Footer updatePage={this.updatePage} />
+        <Footer updatePage={this.updatePage} contact={this.contact} />
       </main>
     );
   }
@@ -172,6 +198,29 @@ const Counters = (props) => {
   return (<div>
     <Counter label={"code"} countUp={props.countUp} date={'2020-05-11 00:00:00'} />
     <Counter label={"write"} countUp={props.countUp} date={'2015-07-25 00:00:00'} />
+  </div>);
+}
+
+const Contact = (props) => {
+  return (<div className="contactForm">
+    <form netlify="true" name="contact" onSubmit={props.handleSubmit} className="actualForm">
+      <div tabIndex="0" onClick={() => props.contact(false)} className="contactClose">X</div>
+        <section className="formInputs">
+          <div className="conInp">
+            {/*<label htmlFor="name">Name</label>*/}
+            <input type="text" id="name" name="name" onChange={(e) => props.updateState( 'formName', e.target.value )} value={props.name} placeholder="Name" required/>
+          </div>
+          <div className="conInp">
+            {/*<label htmlFor="email">Email</label>*/}
+            <input type="email" id="email" name="email" onChange={(e) => props.updateState( 'formEmail', e.target.value )} value={props.email} placeholder="Email" required/>
+          </div>
+        <div className="conInp">
+          {/*<label htmlFor="message">Message</label>*/}
+          <textarea type="text" id="message" name="message" onChange={(e) => props.updateState( 'formMessage', e.target.value )} value={props.message} placeholder="Message" />
+        </div>
+        <button type="submit">Send</button>
+      </section>
+    </form>
   </div>);
 }
 
