@@ -154,7 +154,7 @@ class App extends React.Component {
         {this.state.contactForm ? <Contact handleSubmit={this.handleSubmit} contact={this.contact} updateState={this.updateState} name={formName} email={formEmail} message={formMessage} /> : ''}
         <Navbar updatePage={this.updatePage} collapse={this.collapse} collapsed={collapsed} fixed={fixed} />
         <Routes>
-          <Route path={"/"} element={<Home collapsed={collapsed} counters={<Counters countUp={this.countUp} />} />} />
+          <Route path={"/"} element={<Home collapsed={collapsed} codeCount={<Counter label={"code"} countUp={this.countUp} date={'2020-05-11 00:00:00'}/>} writeCount={<Counter label={"write"} countUp={this.countUp} date={'2015-07-25 00:00:00'}/>} />} />
           <Route path={"/about-me"} element={<AboutMe collapsed={collapsed} />} />
           <Route path={"/writing"} element={<Writing collapsed={collapsed} />} />
           <Route path={"/websites"} element={<Websites collapsed={collapsed} websites={websites} />} />
@@ -177,28 +177,21 @@ const Counter = (props) => {
     <div className="count-body">
       <h2>Days since I started to {props.label}</h2>
       <div className="counts">
-        <div className="container-years">
+        <div className="years">
           <h3 className="year">{obj.years}</h3>
-          <h3 className="count-label">{obj.years === 1 ? 'Year' : 'Years'}</h3>
+          <h3 className="countLabel">{obj.years === 1 ? 'Year' : 'Years'}</h3>
         </div>
-        <div className="container-months">
+        <div className="months">
           <h3 className="month">{obj.months}</h3>
-          <h3 className="count-label">{obj.months === 1 ? 'Month' : 'Months'}</h3>
+          <h3 className="countLabel">{obj.months === 1 ? 'Month' : 'Months'}</h3>
         </div>
-        <div className="container-days">
+        <div className="days">
           <h3 className="day">{obj.days}</h3>
-          <h3 className="count-label">{obj.days === 1 ? 'Day' : 'Days'}</h3>
+          <h3 className="countLabel">{obj.days === 1 ? 'Day' : 'Days'}</h3>
         </div>
       </div>
     </div>
   );
-}
-
-const Counters = (props) => {
-  return (<div>
-    <Counter label={"code"} countUp={props.countUp} date={'2020-05-11 00:00:00'} />
-    <Counter label={"write"} countUp={props.countUp} date={'2015-07-25 00:00:00'} />
-  </div>);
 }
 
 const Contact = (props) => {

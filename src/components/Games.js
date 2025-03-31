@@ -27,7 +27,6 @@ function Game(props) {
         })}
       </div>
       {obj.title === "Minesweeper" ? <Minesweeper /> : 'Tic-Tac-Toe'}
-      {/*<img src={obj.image} alt="" className="" style={{ maxWidth: "100%" }} />*/}
     </section>
   );
 }

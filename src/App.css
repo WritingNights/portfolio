@@ -160,6 +160,11 @@ textarea, input {
   cursor: pointer;
 }
 
+.link:hover, .link:focus {
+  color: #FBFE2C;
+  text-shadow: 1px 1px 1px #00000044;
+}
+
 .center {
   margin: 0 3%;
   color: black;
@@ -169,6 +174,11 @@ textarea, input {
 
 .podcast {
   position: relative;
+}
+
+.activeLink {
+  color: #FBFE2C;
+  text-shadow: 1px 1px 1px #00000044;
 }
 
 .podcast img {
@@ -324,34 +334,15 @@ textarea, input {
   border-radius: .25rem;
   display: grid;
   justify-items: center;
+  align-items: center;
   grid-gap: .5rem;
   padding: 2rem .5rem;
-  grid-template-rows: 6rem auto;
-}
-
-.aboutTag svg {
-  align-self: center;
-  visibility: hidden;
 }
 
 .aboutTag span {
   max-width: 30rem;
   font-size: 1.5rem;
-}
-
-@media screen
-and (max-width: 739px) {
-  .bigTag {
-    width: calc(100% - .5rem);
-  }
-
-  .smallTag {
-    width: calc(100% - .5rem);
-  }
-}
-
-.smallTag {
-  grid-column: 3 / 4;
+  text-align: justify;
 }
 
 /* Counter */
@@ -370,19 +361,20 @@ and (max-width: 739px) {
 }
 
 .year, .month, .day {
+  height: 2.5rem;
+  aspect-ratio: 2 / 3;
+  margin: auto;
+  padding: 5px;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 35px;
-  width: 35px;
-  margin: auto;
-  padding: 5px;
+  font-size: 2rem;
   background-color: white;
-  border-radius: 5px;
+  border-radius: 1px;
   box-shadow: 1px 1px 4px #00000088;
 }
 
-.count-label {
+.countLabel {
   font-size: .9rem;
 }
 
@@ -514,7 +506,7 @@ and (max-width: 739px) {
   right: 2.5%;
   border-radius: 50%;
   background-color: #000000dd;
-  filter: blur(0px);
+  filter: blur(4px);
   transition: .5s cubic-bezier(0.7,0.0,0.3,1);
 }
 

@@ -45,16 +45,16 @@ class Navbar extends React.Component {
               <img src={icon} alt="home button/icon" style={{width: "4rem", aspectRatio: 1}} />
             </Link>
             <section className="links">
-              <Link to={"/writing"} className="link center" title="Writing" onClick={() => updatePage("writing")}>
+              <Link to={"/writing"} className={`${window.location.pathname.split('/')[1] === 'writing' ? 'activeLink' : ''} link center`} title="Writing" onClick={() => updatePage("writing")}>
                 &nbsp;Writing
               </Link>
-              <Link to={"/websites"} className="link center" title="Websites" onClick={() => updatePage("websites")}>
+              <Link to={"/websites"} className={`${window.location.pathname.split('/')[1] === 'websites' ? 'activeLink' : ''} link center`} title="Websites" onClick={() => updatePage("websites")}>
                &nbsp;Websites
               </Link>
-              <Link to={"/graphics"} className="link center" title="Graphics" onClick={() => updatePage("graphics")}>
+              <Link to={"/graphics"} className={`${window.location.pathname.split('/')[1] === 'graphics' ? 'activeLink' : ''} link center`} title="Graphics" onClick={() => updatePage("graphics")}>
                 &nbsp;Graphics
               </Link>
-              <Link to={"/podcast"} className="link center podcast" title="Podcast" onClick={() => updatePage("podcast")}>
+              <Link to={"/podcast"} className={`${window.location.pathname.split('/')[1] === 'podcast' ? 'activeLink' : ''} link center podcast`} title="Podcast" onClick={() => updatePage("podcast")}>
                 &nbsp;Podcast
               <img src={beacon} alt="beacon/podcasts" style={{width: "4rem"}}  />
               </Link>
