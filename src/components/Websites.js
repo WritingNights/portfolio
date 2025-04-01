@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import camera from "./icons/Camera Outline.png";
 
 export default function Websites(props) {
   const { websites } = props;
@@ -8,6 +9,10 @@ export default function Websites(props) {
 
   return (
     <section id="websites" className="manager">
+      <header className="websitesHead">
+        <img src={camera} alt="polaroid outline" className="websiteHero"/>
+        <span></span>
+      </header>
       <section className="gameSect">
         <h2>Games</h2>
         <article>

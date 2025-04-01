@@ -1,4 +1,4 @@
-import js from "../logos/LogoJS.jpg";
+/*import js from "../logos/LogoJS.jpg";
 import py from "../logos/LogoPython.png";
 import dj from "../logos/LogoDjango.svg";
 import react from "../logos/LogoReact.png";
@@ -38,4 +38,4 @@ const skills = [
     }
   ];
 
-export default skills;
+export default skills;*/

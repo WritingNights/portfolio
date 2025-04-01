@@ -10,15 +10,15 @@ export default function About(props) {
           <header className="aboutHead">
             <img src={logo} alt="Daniel Jones tree/book logo" id="logo"/>
           </header>
-          <div className="chasm">
-            <div className="chasmLeft">
+          <div className="chasm homeChasm">
+            <div className="chasmLeft homeChasmLeft">
               <div className="brAndSh">
-                <div className="bridge"/>
-                <div className="shadow1"/>
+                <div className="bridge homeBridge"/>
+                <div className="shadow1 homeShadow1"/>
               </div>
             </div>
-            <div className="chasmRight">
-              <div className="shadow2" style={{ transform: `rotateZ(${Math.floor(70 * (1 - (window.innerWidth / 1440))) + 10}deg)` }}/>
+            <div className="chasmRight homeChasmRight">
+              <div className="shadow2 homeShadow2" style={{ transform: `rotateZ(${Math.floor(70 * (1 - (window.innerWidth / 1440))) + 10}deg)` }}/>
             </div>
           </div>
           <section className="aboutTags">

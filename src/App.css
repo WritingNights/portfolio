@@ -212,6 +212,53 @@ textarea, input {
     }
   }
 
+/* Chasm */
+
+.chasm {
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+}
+
+.chasmLeft {
+  height: 100%;
+  width: 55%;
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  overflow: hidden;
+}
+
+.chasmRight {
+  height: 100%;
+  width: 45%;
+  overflow: hidden;
+}
+
+.brAndSh, .brAndHi {
+  width: 7.5rem;
+  position: absolute;
+  right: -4.4rem;
+  transform: rotateZ(-70deg);
+}
+
+.bridge {
+  height: 1rem;
+  width: 100%;
+}
+
+.shadow1 {
+  width: 100%;
+}
+
+.shadow2 {
+  height: 5rem;
+  min-width: 5rem;
+  width: 110%;
+  transform-origin: top left;
+}
+
 /* about.js */
 
 .about {
@@ -266,56 +313,25 @@ textarea, input {
   z-index: 1;
 }
 
-.chasm {
+.homeChasm {
   height: 5rem;
-  width: 100vw;
-  display: flex;
-  flex-direction: row;
 }
 
-.chasmLeft {
-  height: 100%;
-  width: 55%;
-  position: relative;
+.homeChasmLeft, .homeChasmRight {
   background-color: #FFA850;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  overflow: hidden;
 }
 
-.chasmRight {
-  height: 100%;
-  width: 45%;
-  background-color: #FFA850;
-  overflow: hidden;
-}
-
-.brAndSh {
-  width: 7.5rem;
-  position: absolute;
-  right: -4.4rem;
-  transform: rotateZ(-70deg);
-}
-
-.bridge {
-  height: 1rem;
-  width: 100%;
+.homeBridge {
   background-color: #f8f7f6;
 }
 
-.shadow1 {
+.homeShadow1 {
   height: 4rem;
-  width: 100%;
   background-color: #00000066;
 }
 
-.shadow2 {
-  height: 5rem;
-  min-width: 5rem;
-  width: 110%;
+.homeShadow2 {
   background-color: #00000044;
-  transform-origin: top left;
 }
 
 .aboutTags {
@@ -395,6 +411,19 @@ textarea, input {
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+}
+
+.websitesHead {
+  height: 35rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.websiteHero {
+  min-width: 15rem;
+  width: 30%;
 }
 
 #websites h2 {
@@ -580,16 +609,19 @@ textarea, input {
   align-items: center;
 }
 
-/* Contact.js */
+/* AboutMe.js */
 
-#Contact {
-  min-height: 100vh;
+#AboutMe {
+  min-height: 85vh;
   max-width: 100vw;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: space-between;
   padding: 5rem 0 1rem;
   overflow-x: hidden;
   position: relative;
+  background-color: #12685C;
+  color: #FBFE2C;
 }
 
 .contact {
@@ -615,44 +647,17 @@ textarea, input {
   justify-content: center;
   align-items: flex-start;
   position: relative;
+  box-shadow: 0 0 4px #00000088;
 }
 
 .conImg img {
   width: 100%;
   background: rgba(90, 68, 72, 0.4);
   border-radius: 5px;
-  opacity: .95;
-}
-
-.conImg h2 {
-  position: absolute;
-  top: 0;
-  left: 0;
-  font-size: 2.5rem;
-  padding: 0 .75rem;
-  color: white;
-  border-bottom: 1px solid white;
-}
-
-.hireFormDiv {
-  width: 90%;
-  max-width: 26rem;
-  height: 90%;
-  margin: 1rem;
-  grid-column: 1 / 3;
-  font-family: 'Poppins', sans-serif;
-}
-
-.hireForm {
-  font-weight: 700;
-  padding: .25rem .5rem;
-  background-color: #dac7aad9;
-  box-shadow: 0 0 3px #ffffff80;
-  position: relative;
 }
 
 .textCont {
-  max-width: 20rem;
+  max-width: 30rem;
   padding: 10px;
   display: flex;
   justify-content: center;
@@ -668,10 +673,31 @@ textarea, input {
 
 .meText p {
   padding: 10px 0;
-  font-family: 'Poppins', sans-serif;
-  font-size: 1.2rem;
+  font-size: 1.7rem;
   font-weight: bold;
 }
+
+.aMChasm {
+  height: 3rem;
+}
+
+.aMChasmLeft, .aMChasmRight {
+  background-color: #222;
+}
+
+.aMBridge {
+  background-color: #12685C;
+}
+
+.highlight1 {
+  height: 3.25rem;
+  background-color: hsl(61, 99%, 10%);
+}
+
+.highlight2 {
+  background-color: hsl(61, 99%, 38%, 20%);
+}
+
 
 /* Footer */
 

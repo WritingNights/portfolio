@@ -42,7 +42,7 @@ class Navbar extends React.Component {
         <div id="navbar" className={`${fixed ? 'fixed' : 'stuck'}`}>
           <div id="newLinks">
             <Link to={"/"} className="link" id="home" title="Home" onClick={() => updatePage("home")}>
-              <img src={icon} alt="home button/icon" style={{width: "4rem", aspectRatio: 1}} />
+              <img src={icon} alt="home button/icon" style={{width: "3rem", aspectRatio: 1}} />
             </Link>
             <section className="links">
               <Link to={"/writing"} className={`${window.location.pathname.split('/')[1] === 'writing' ? 'activeLink' : ''} link center`} title="Writing" onClick={() => updatePage("writing")}>
