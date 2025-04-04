@@ -154,7 +154,7 @@ class App extends React.Component {
         {this.state.contactForm ? <Contact handleSubmit={this.handleSubmit} contact={this.contact} updateState={this.updateState} name={formName} email={formEmail} message={formMessage} /> : ''}
         <Navbar updatePage={this.updatePage} collapse={this.collapse} collapsed={collapsed} fixed={fixed} />
         <Routes>
-          <Route path={"/"} element={<Home collapsed={collapsed} codeCount={<Counter label={"code"} countUp={this.countUp} date={'2020-05-11 00:00:00'}/>} writeCount={<Counter label={"write"} countUp={this.countUp} date={'2015-07-25 00:00:00'}/>} />} />
+          <Route path={"/"} element={<Home collapsed={collapsed} codeCount={<Counter label={"code"} countUp={this.countUp} date={'2020-05-11 00:00:00'}/>} updatePage={this.updatePage} writeCount={<Counter label={"write"} countUp={this.countUp} date={'2015-07-25 00:00:00'}/>} />} />
           <Route path={"/about-me"} element={<AboutMe collapsed={collapsed} />} />
           <Route path={"/writing"} element={<Writing collapsed={collapsed} />} />
           <Route path={"/websites"} element={<Websites collapsed={collapsed} websites={websites} />} />
@@ -164,7 +164,7 @@ class App extends React.Component {
           <Route path={"/graphics/:item"} element={<Template collapsed={collapsed} />} />
           <Route path={"/podcast"} element={<Podcast collapsed={collapsed} />} />
         </Routes>
-        <Footer updatePage={this.updatePage} contact={this.contact} />
+        <Footer contact={this.contact} />
       </main>
     );
   }
