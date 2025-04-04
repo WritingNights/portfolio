@@ -582,6 +582,17 @@ textarea, input {
 
 /* Podcast */
 
+.podcastBanner {
+  aspect-ratio: 1440 / 480;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
 /* Template */
 
 #template {
