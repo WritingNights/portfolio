@@ -7,6 +7,7 @@
 }
 
 body {
+  min-width: 320px;
   background-color: #f8f7f6;
   overflow-x: hidden;
   overscroll-behavior-y: none;
@@ -215,6 +216,7 @@ textarea, input {
 /* Chasm */
 
 .chasm {
+  min-width: 320px;
   width: 100vw;
   display: flex;
   flex-direction: row;
@@ -315,10 +317,34 @@ textarea, input {
 
 .homeChasm {
   height: 5rem;
+  position: relative;
 }
 
 .homeChasmLeft, .homeChasmRight {
   background-color: #FFA850;
+}
+
+.homeLink {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: .65rem 5%;
+  padding: 1rem 1.5rem;
+  background-color: #1CA390;
+  color: #12685C;
+  text-decoration: none;
+  font-family: "Libre Caslon Text", serif;
+  font-weight: bold;
+  border-radius: 2rem;
+  border: 3px solid #12685C;
+  transition: .5s ease;
+  box-shadow: inset 2px 2px 1px #00000044;
+  z-index: 10;
+}
+
+.homeLink:hover, .homeLink:focus {
+  transition: .5s ease;
+  box-shadow: none;
 }
 
 .homeBridge {
@@ -417,13 +443,23 @@ textarea, input {
   height: 35rem;
   width: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
+.websitesHead > article {
+  padding-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.8rem;
+}
+
 .websiteHero {
   min-width: 15rem;
-  width: 30%;
+  width: 25%;
 }
 
 #websites h2 {
@@ -443,7 +479,7 @@ textarea, input {
   align-items: center;
 }
 
-#websites article {
+.webSectArt {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -552,7 +588,20 @@ textarea, input {
   position: relative;
 }
 
+.tempContainer {
+  height: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
+
 .templateOverlay {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
   opacity: 25%;
   transition: .25s ease;
 }
@@ -579,8 +628,8 @@ textarea, input {
   font-weight: 700;
 }
 
-.headImg {
-  width: 100%;
+.tempImg {
+  width: 50%;
 }
 
 /* Game */
@@ -621,17 +670,14 @@ textarea, input {
   overflow-x: hidden;
   position: relative;
   background-color: #12685C;
-  color: #FBFE2C;
+  color: #FFF;
 }
 
-.contact {
-  background-color: transparent;
-}
-
-.contactArt {
+.aMArticle {
   min-width: 25rem;
   width: 90%;
   height: 100%;
+  margin: auto;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -640,7 +686,7 @@ textarea, input {
   z-index: 2;
 }
 
-.conImg {
+.aMImg {
   width: 350px;
   max-width: 350px;
   display: flex;
@@ -650,22 +696,17 @@ textarea, input {
   box-shadow: 0 0 4px #00000088;
 }
 
-.conImg img {
+.aMImg img {
   width: 100%;
   background: rgba(90, 68, 72, 0.4);
   border-radius: 5px;
 }
 
-.textCont {
-  max-width: 30rem;
-  padding: 10px;
-  display: flex;
-  justify-content: center;
-}
-
 .meText {
-  text-indent: 10px;
-  padding-bottom: 10px;
+  max-width: 40rem;
+  text-indent: 2rem;
+  line-height: 250%;
+  padding: 10px 10px 20px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;

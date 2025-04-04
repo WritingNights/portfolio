@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import logo from "./icons/Logo.png";
 
@@ -11,6 +12,9 @@ export default function About(props) {
             <img src={logo} alt="Daniel Jones tree/book logo" id="logo"/>
           </header>
           <div className="chasm homeChasm">
+              <Link to={"/about-me"} className="homeLink" title="Contact" onClick={() => props.updatePage("contact")}>
+                About Me
+              </Link>
             <div className="chasmLeft homeChasmLeft">
               <div className="brAndSh">
                 <div className="bridge homeBridge"/>

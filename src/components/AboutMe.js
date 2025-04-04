@@ -6,13 +6,11 @@ import aboutMe from "./data/sellMe-data";
 export default function Contact(props) {
   return (
     <section id="AboutMe" className="manager">
-      <article className="contactArt">
-        <div className="conImg">
+      <article className="aMArticle">
+        <div className="aMImg">
           <img src={face} alt="me"/>
         </div>
-        <div className="textCont">
-          {aboutMe}
-        </div>
+        {aboutMe}
       </article>
       <div className="chasm aMChasm">
         <div className="chasmLeft aMChasmLeft">

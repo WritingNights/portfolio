@@ -1,16 +1,20 @@
 const aboutMe = (<div className="meText">
-    <p>
-        A writer by craft, developer by code, I believe the big picture
-        and tiny details go hand in hand.
-    </p>
-    <p>
-        I give life to websites as if they were another one of my
-        stories because in a way, that's exactly what they are.
-    </p>
-    <p>
-        Between efficient functions, custom layouts, and unique style,
-        your site will be its own living, breathing document.
-    </p>
+  <p>
+    Hello there, I’m eclectic at the core. Daniel Jones by name; author, web developer,
+    environmentalist and more. I love to explore, learn, and grow. I failed a lot
+    growing up, but that’s given me the knowledge and confidence to succeed at everything I do today.
+  </p>
+  <p>
+    My mission is to support the growth of individual identities in creative
+    spaces by building websites, designing graphics, and offering insights
+    from someone who is dealing with the same obstacles. I’m always looking
+    to improve, broadening the scope of my abilities to enhance the depth of
+    work I do. This portfolio attests to that story of who I am as a creator,
+    developing unique styles inspired by different aspects of my life.
+  </p>
+  <p>
+    Let’s see what I can do.
+  </p>
 </div>);
 
 export default aboutMe;
