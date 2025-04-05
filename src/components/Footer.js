@@ -2,7 +2,7 @@ export default function Footer(props) {
   return (
     <section id="footer">
       <div>
-        <a href=''/*"./UTDTechResume.pdf"*/ className="footerLink link" title="Download" download>
+        <a href=''/*"./UTDTechResume.pdf"*/ className="footerLink link" title="Download" tabIndex="0" download>
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill='none' viewBox="0 0 48 48" id="resumeSVG">
             <path d="M10 38V44H38V38" fill="" stroke="black" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
             <path d="M38 20V14L30 4H10V20" fill="" stroke="black" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>

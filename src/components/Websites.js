@@ -20,7 +20,7 @@ export default function Websites(props) {
         <h2>Games</h2>
         <article className="webSectArt">
           {games.map((obj, i) => {
-            return (<Link to={obj.game ? `/websites/game/${obj.title}` : `/websites/${obj.title}`} state={{ obj: obj, link: 'websites' }} key={i} className="websiteCard" >
+            return (<Link to={obj.game ? `/websites/game/${obj.title}` : `/websites/${obj.title}`} state={{ obj: obj, link: 'websites' }} key={i} className="websiteCard" tabIndex="0">
               {obj.thumbnail ? <img src={obj.thumbnail} alt={`${obj.title} thumbnail`} className="thumb" /> : ''}
               <h3>{obj.title}</h3>
             </Link>)
@@ -31,7 +31,7 @@ export default function Websites(props) {
         <h2>Old Websites</h2>
         <article className="webSectArt">
           {old.map((obj, i) => {
-            return (<Link to={obj.game ? `/websites/game/${obj.title}` : `/websites/${obj.title}`} state={{ obj: obj, link: 'websites' }} key={i} className="websiteCard" >
+            return (<Link to={obj.game ? `/websites/game/${obj.title}` : `/websites/${obj.title}`} state={{ obj: obj, link: 'websites' }} key={i} className="websiteCard" tabIndex="0">
               {obj.title}
               {obj.thumbnail ? <img src={obj.thumbnail} alt={`${obj.title} thumbnail`} className="thumb" /> : ''}
             </Link>)

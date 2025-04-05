@@ -12,7 +12,7 @@ export default function About(props) {
             <img src={logo} alt="Daniel Jones tree/book logo" id="logo"/>
           </header>
           <div className="chasm homeChasm">
-              <Link to={"/about-me"} className="homeLink" title="Contact" onClick={() => props.updatePage("contact")}>
+              <Link to={"/about-me"} className="homeLink" title="Contact" onClick={() => props.updatePage("about-me")} tabIndex="0">
                 About Me
               </Link>
             <div className="chasmLeft homeChasmLeft">
