@@ -593,6 +593,10 @@ textarea, input {
   align-items: flex-start;
 }
 
+.podcastBanner iframe {
+  min-width: 234px;
+}
+
 /* Template */
 
 #template {
@@ -715,8 +719,10 @@ textarea, input {
 
 .meText {
   max-width: 40rem;
-  text-indent: 2rem;
-  line-height: 250%;
+  text-indent: 6rem;
+  line-height: 200%;
+  letter-spacing: .1rem;
+  word-spacing: .2rem;
   padding: 10px 10px 20px;
   display: flex;
   flex-direction: column;
