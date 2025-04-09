@@ -17,8 +17,6 @@ class Navbar extends React.Component {
       socialStyle: {display: 'none'}
     }
 
-    this.ref = React.createRef();
-
     this.keyPress = this.keyPress.bind(this);
   }
 

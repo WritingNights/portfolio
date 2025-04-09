@@ -7,8 +7,6 @@ import podcastFrame from "./data/podcast-data.js";
 export default function Podcast(props) {
   const source = podcastFrame[moment().date() - 1 % podcastFrame.length].src;
 
-//  const source = "3hKikFMbF9YY5eSx2b1Uex";
-
   return (
     <section id="podcast" className="manager">
       <div style={{ backgroundImage: `url(${banner})`}} className="podcastBanner">

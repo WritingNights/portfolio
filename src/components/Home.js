@@ -22,7 +22,7 @@ export default function About(props) {
               </div>
             </div>
             <div className="chasmRight homeChasmRight">
-              <div className="shadow2 homeShadow2" style={{ transform: `rotateZ(${Math.floor(70 * (1 - (window.innerWidth / 1440))) + 10}deg)` }}/>
+              <div className="shadow2 homeShadow2" style={{ transform: `rotateZ(${Math.floor(70 * (1 - ((window.innerWidth > 1440 ? 1440 : window.innerWidth) / 1440))) + 10}deg)` }}/>
             </div>
           </div>
           <section className="aboutTags">

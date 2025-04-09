@@ -1,7 +1,7 @@
 const aboutMe = (<div className="meText">
   <p>
-    Hello there, I’m eclectic at the core. Daniel Jones by name; author, web developer,
-    environmentalist and more. I love to explore, learn, and grow. I failed a lot
+    Hello there, I’m eclectic at the core. I love to learn, grow, and explore.
+    Daniel Jones by name; author, web developer, environmentalist and more. I failed a lot
     growing up, but that’s given me the knowledge and confidence to succeed at everything I do today.
   </p>
   <p>

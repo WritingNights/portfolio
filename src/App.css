@@ -719,9 +719,10 @@ textarea, input {
 
 .meText {
   max-width: 40rem;
+  font-size: 1.2rem;
   text-indent: 6rem;
-  line-height: 200%;
-  letter-spacing: .1rem;
+  line-height: 150%;
+  letter-spacing: .05rem;
   word-spacing: .2rem;
   padding: 10px 10px 20px;
   display: flex;
@@ -731,8 +732,6 @@ textarea, input {
 
 .meText p {
   padding: 10px 0;
-  font-size: 1.7rem;
-  font-weight: bold;
 }
 
 .aMChasm {

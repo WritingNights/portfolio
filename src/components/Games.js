@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 
 import Minesweeper from "./Minesweeper.js";
+import XO from "./XO.js";
 
 function Game(props) {
   const location = useLocation();
@@ -26,7 +27,7 @@ function Game(props) {
           </span>);
         })}
       </div>
-      {obj.title === "Minesweeper" ? <Minesweeper /> : 'Tic-Tac-Toe'}
+      {obj.title === "Minesweeper" ? <Minesweeper /> : obj.title === 'Tic-Tac-Toe' ? <XO /> : ''}
     </section>
   );
 }

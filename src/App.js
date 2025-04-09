@@ -197,21 +197,21 @@ const Counter = (props) => {
 const Contact = (props) => {
   return (<div className="contactForm">
     <form netlify="true" name="contact" onSubmit={props.handleSubmit} className="actualForm">
-      <div tabIndex="0" onClick={() => props.contact(false)} className="contactClose">X</div>
-        <section className="formInputs">
-          <div className="conInp">
-            {/*<label htmlFor="name">Name</label>*/}
-            <input type="text" id="name" name="name" onChange={(e) => props.updateState( 'formName', e.target.value )} value={props.name} placeholder="Name" required/>
-          </div>
-          <div className="conInp">
-            {/*<label htmlFor="email">Email</label>*/}
-            <input type="email" id="email" name="email" onChange={(e) => props.updateState( 'formEmail', e.target.value )} value={props.email} placeholder="Email" required/>
-          </div>
+      <div tabIndex="0" onClick={() => props.contact(false)} onKeyDown={e => e.keyCode === 13 ? props.contact(false) : ''} className="contactClose">X</div>
+      <section className="formInputs">
+        <div className="conInp">
+          {/*<label htmlFor="name">Name</label>*/}
+          <input type="text" id="name" name="name" onChange={(e) => props.updateState( 'formName', e.target.value )} value={props.name} placeholder="Name" tabIndex="0" required/>
+        </div>
+        <div className="conInp">
+          {/*<label htmlFor="email">Email</label>*/}
+          <input type="email" id="email" name="email" onChange={(e) => props.updateState( 'formEmail', e.target.value )} value={props.email} placeholder="Email" tabIndex="0" required/>
+        </div>
         <div className="conInp">
           {/*<label htmlFor="message">Message</label>*/}
-          <textarea type="text" id="message" name="message" onChange={(e) => props.updateState( 'formMessage', e.target.value )} value={props.message} placeholder="Message" />
+          <textarea type="text" id="message" name="message" onChange={(e) => props.updateState( 'formMessage', e.target.value )} value={props.message} placeholder="Message" tabIndex="0" />
         </div>
-        <button type="submit">Send</button>
+        <button type="submit" tabIndex="0">Send</button>
       </section>
     </form>
   </div>);
