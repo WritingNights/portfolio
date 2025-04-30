@@ -440,16 +440,16 @@ textarea, input {
 }
 
 .websitesHead {
-  height: 35rem;
+  height: 15rem;
   width: 100%;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
 }
 
 .websitesHead > article {
-  padding-top: 2rem;
+  margin-left: 2rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -458,8 +458,7 @@ textarea, input {
 }
 
 .websiteHero {
-  min-width: 15rem;
-  width: 25%;
+  height: 5rem;
 }
 
 #websites h2 {
@@ -708,18 +707,15 @@ textarea, input {
   justify-content: center;
   align-items: flex-start;
   position: relative;
-  box-shadow: 0 0 4px #00000088;
 }
 
 .aMImg img {
   width: 100%;
-  background: rgba(90, 68, 72, 0.4);
-  border-radius: 5px;
 }
 
 .meText {
   max-width: 40rem;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   text-indent: 6rem;
   line-height: 150%;
   letter-spacing: .05rem;

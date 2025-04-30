@@ -4,6 +4,7 @@ import camera from "./icons/Camera Outline.png";
 export default function Websites(props) {
   const { websites } = props;
 
+  const team = [];
   const games = websites.filter(obj => obj.game);
   const old = websites.filter(obj => !obj.game);
 
@@ -16,11 +17,20 @@ export default function Websites(props) {
           <span>but my snapshots are quite good.</span>
         </article>
       </header>
+      <section className="teamSect">
+        <h2>Team Projects</h2>
+        <article className="webSectArt">
+          {team.map((obj, i) => {
+            return (i)
+          })}
+          <h3>In progress...</h3>
+        </article>
+      </section>
       <section className="gameSect">
         <h2>Games</h2>
         <article className="webSectArt">
           {games.map((obj, i) => {
-            return (<Link to={obj.game ? `/websites/game/${obj.title}` : `/websites/${obj.title}`} state={{ obj: obj, link: 'websites' }} key={i} className="websiteCard" tabIndex="0">
+            return (<Link to={`/websites/game/${obj.title}`} state={{ obj: obj, link: 'websites' }} key={i} className="websiteCard" tabIndex="0">
               {obj.thumbnail ? <img src={obj.thumbnail} alt={`${obj.title} thumbnail`} className="thumb" /> : ''}
               <h3>{obj.title}</h3>
             </Link>)
@@ -28,10 +38,10 @@ export default function Websites(props) {
         </article>
       </section>
       <section className="oldSect">
-        <h2>Old Websites</h2>
+        <h2>Personal Projects</h2>
         <article className="webSectArt">
           {old.map((obj, i) => {
-            return (<Link to={obj.game ? `/websites/game/${obj.title}` : `/websites/${obj.title}`} state={{ obj: obj, link: 'websites' }} key={i} className="websiteCard" tabIndex="0">
+            return (<Link to={`/websites/${obj.title}`} state={{ obj: obj, link: 'websites' }} key={i} className="websiteCard" tabIndex="0">
               {obj.title}
               {obj.thumbnail ? <img src={obj.thumbnail} alt={`${obj.title} thumbnail`} className="thumb" /> : ''}
             </Link>)

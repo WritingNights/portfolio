@@ -1,0 +1,56 @@
+:root {
+  --main: #140F93;
+  --secondary: #090748;
+  --accent: #D3CF00;
+  /*var(--main)*/
+}
+
+#networkApp {
+  min-height: calc(100vh - 10rem);
+  background-color: var(--main);
+  font-family: 'Poppins';
+}
+
+.network-header {
+  height: calc(100vh - 10rem);
+  width: 30%;
+  padding: .5rem;
+  background-color: var(--secondary);
+}
+
+.network-back {
+  fill: var(--accent);
+}
+
+.network-links {
+  width: 80%;
+  margin: auto;
+  color: white;
+  font-weight: bold;
+  font-size: 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.network-links textarea {
+  height: 3rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  font-family: 'Poppins';
+  background-color: transparent;
+  color: white;
+  border: none;
+  transition: .5s ease;
+}
+
+
+
+.network-links textarea::placeholder:focus, .network-links textarea::placeholder:active {
+  border: 1px solid white;
+  transition: .5s ease;
+  color: transparent;
+}
+
+.network-links span {
+  margin: 1rem 0;
+}

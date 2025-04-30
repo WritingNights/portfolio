@@ -1,8 +1,7 @@
 import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 
-import Minesweeper from "./Minesweeper.js";
-import XO from "./XO.js";
+import lives from "./data/live-data.js";
 
 function Game(props) {
   const location = useLocation();
@@ -11,6 +10,9 @@ function Game(props) {
   const games = props.websites.filter(
     obj => obj.game
   );
+
+  const Live = lives.filter(x => x.title === obj.title)[0].game;
+
   return (
     <section id="template" className="manager">
       <div className="gameNav">
@@ -27,7 +29,7 @@ function Game(props) {
           </span>);
         })}
       </div>
-      {obj.title === "Minesweeper" ? <Minesweeper /> : obj.title === 'Tic-Tac-Toe' ? <XO /> : ''}
+      <Live />
     </section>
   );
 }

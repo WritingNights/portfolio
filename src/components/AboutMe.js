@@ -1,5 +1,5 @@
 import React from "react";
-import face from "./firstProjectPhoto.jpg";
+import portrait from "./data/Portrait.png";
 import aboutMe from "./data/sellMe-data";
 
 
@@ -8,7 +8,7 @@ export default function Contact(props) {
     <section id="AboutMe" className="manager">
       <article className="aMArticle">
         <div className="aMImg">
-          <img src={face} alt="me"/>
+          <img src={portrait} alt="me"/>
         </div>
         {aboutMe}
       </article>

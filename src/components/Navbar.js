@@ -43,19 +43,19 @@ class Navbar extends React.Component {
               <img src={icon} alt="home button/icon" style={{width: "3rem", aspectRatio: 1}} />
             </Link>
             <section className="links">
-              <Link to={"/writing"} className={`${window.location.pathname.split('/')[1] === 'writing' ? 'activeLink' : ''} link center`} title="Writing" onClick={() => updatePage("writing")} tabIndex="0">
+              {/*<Link to={"/writing"} className={`${window.location.pathname.split('/')[1] === 'writing' ? 'activeLink' : ''} link center`} title="Writing" onClick={() => updatePage("writing")} tabIndex="0">
                 &nbsp;Writing
-              </Link>
+              </Link>*/}
               <Link to={"/websites"} className={`${window.location.pathname.split('/')[1] === 'websites' ? 'activeLink' : ''} link center`} title="Websites" onClick={() => updatePage("websites")} tabIndex="0">
                &nbsp;Websites
               </Link>
               <Link to={"/graphics"} className={`${window.location.pathname.split('/')[1] === 'graphics' ? 'activeLink' : ''} link center`} title="Graphics" onClick={() => updatePage("graphics")} tabIndex="0">
                 &nbsp;Graphics
               </Link>
-              <Link to={"/podcast"} className={`${window.location.pathname.split('/')[1] === 'podcast' ? 'activeLink' : ''} link center podcast`} title="Podcast" onClick={() => updatePage("podcast")} tabIndex="0">
+              {/*<Link to={"/podcast"} className={`${window.location.pathname.split('/')[1] === 'podcast' ? 'activeLink' : ''} link center podcast`} title="Podcast" onClick={() => updatePage("podcast")} tabIndex="0">
                 &nbsp;Podcast
               <img src={beacon} alt="beacon/podcasts" style={{width: "4rem"}}  />
-              </Link>
+              </Link>*/}
             </section>
             <img src={collapse} alt="collapse" id="collapse" style={{width: "2rem"}} onClick={this.props.collapse} onKeyDown={this.keyPress} tabIndex="0" />
           </div>
