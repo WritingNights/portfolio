@@ -1,30 +1,34 @@
 :root {
-  --main: #140F93;
-  --secondary: #090748;
-  --accent: #D3CF00;
+  --network-main: #ACC2F6;
+  --network-secondary: #090748;
+  --network-accent: #D3CF00;
   /*var(--main)*/
 }
 
 #networkApp {
   min-height: calc(100vh - 10rem);
-  background-color: var(--main);
+  max-height: calc(100vh - 10rem);
+  background-color: var(--network-main);
   font-family: 'Poppins';
+  display: flex;
+  flex-direction: row;
+  position: relative;
 }
 
 .network-header {
   height: calc(100vh - 10rem);
-  width: 30%;
+  width: 30vw;
   padding: .5rem;
-  background-color: var(--secondary);
+  background-color: var(--network-secondary);
 }
 
 .network-back {
-  fill: var(--accent);
+  fill: var(--network-accent);
 }
 
 .network-links {
-  width: 80%;
-  margin: auto;
+  width: 65%;
+  margin-left: 33%;
   color: white;
   font-weight: bold;
   font-size: 1.5rem;
@@ -34,23 +38,90 @@
 
 .network-links textarea {
   height: 3rem;
-  font-size: 1.5rem;
-  font-weight: bold;
+  min-width: 9.5rem;
+  font-size: .85rem;
   font-family: 'Poppins';
   background-color: transparent;
   color: white;
-  border: none;
+  border: 1px solid transparent;
+  transition: .5s ease;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.network-links textarea::placeholder {
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+  transform: translateX(-2px);
+}
+
+.network-links textarea:focus, .network-links textarea:active {
+  height: 15rem;
+  border: 1px solid white;
   transition: .5s ease;
 }
 
-
-
-.network-links textarea::placeholder:focus, .network-links textarea::placeholder:active {
-  border: 1px solid white;
+.network-links textarea:focus::placeholder, .network-links textarea:active::placeholder {
   transition: .5s ease;
   color: transparent;
+  transition: .5s ease;
+}
+
+.network-links button {
+  margin-top: 1rem;
+  padding: .5rem 1rem;
+  background-color: blue;
+  border-radius: 3px;
+  border: 1px solid darkblue;
+  color: white;
+  font-weight: bold;
 }
 
 .network-links span {
+  min-width: 9.5rem;
   margin: 1rem 0;
+  border-left: 1px solid transparent;
 }
+
+/* Posts */
+
+#networkApp main {
+  max-height: calc(100vh - 10rem);;
+  width: 70vw;
+  padding: 3rem 0 1rem 3rem;
+  overflow-y: scroll;
+}
+
+.network-post {
+  width: 85%;
+  padding-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.post-body {
+  width: 100%;
+}
+
+.network-post div {
+  margin: .5rem 0;
+  padding-bottom: 1rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: .75rem;
+}
+
+@media only screen
+  and (max-width: 812px) {
+    .network-header {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    #networkApp main {
+      width: 100vw;
+    }
+  }

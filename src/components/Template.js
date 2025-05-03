@@ -4,11 +4,7 @@ import lives from "./data/live-data.js";
 function Template(props) {
   const location = useLocation();
   const { obj, link } = location.state || {};
-  console.log(location, location.state);
-  console.log(obj);
-  console.log(obj, lives);
   const Live = lives.filter(x => x.title === obj.title)[0]?.live
-  console.log(Live)
   if (Live) {
     return (
       <Live />

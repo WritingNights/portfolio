@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import collapse from "./icons/Collapse.png";
 import collapseD from "./icons/CollapseD.png";
 import icon from "./icons/Icon.png";
-import beacon from "./icons/Beacon.png";
+//import beacon from "./icons/Beacon.png";
 
 class Navbar extends React.Component {
   constructor(props) {

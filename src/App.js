@@ -139,14 +139,6 @@ class App extends React.Component {
   }
 
   render() {
-    /*const packageData = {
-      projects: websites,
-      updateImg: this.updateImg,
-      skills: this.state.show,
-      currentImg: this.state.currentImg,
-      currentAlt: this.state.currentAlt
-    };*/
-
     const { collapsed, fixed, formName, formEmail, formMessage } = this.state;
 
     return (
@@ -175,7 +167,7 @@ const Counter = (props) => {
 
   return (
     <div className="count-body">
-      <h2>Days since I started to {props.label}</h2>
+      <span>It has been</span>
       <div className="counts">
         <div className="years">
           <h3 className="year">{obj.years}</h3>
@@ -190,6 +182,7 @@ const Counter = (props) => {
           <h3 className="countLabel">{obj.days === 1 ? 'Day' : 'Days'}</h3>
         </div>
       </div>
+      <span>since I started to {props.label}</span>
     </div>
   );
 }

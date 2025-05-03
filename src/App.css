@@ -328,7 +328,7 @@ textarea, input {
   position: absolute;
   top: 0;
   left: 0;
-  margin: .65rem 5%;
+  margin: .65rem 10%;
   padding: 1rem 1.5rem;
   background-color: #1CA390;
   color: #12685C;
@@ -361,30 +361,34 @@ textarea, input {
 }
 
 .aboutTags {
+  width: 80%;
   margin-top: 2rem;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  grid-template-columns: repeat(3, 1fr);
+  justify-content: space-between;
 }
 
 .aboutTag {
-  max-width: 35rem;
+  max-width: 25rem;
   min-width: 17rem;
   width: calc(50% - 1rem);
-  margin: .5rem;
+  margin: .5rem 0;
   border-radius: .25rem;
   display: grid;
+  grid-template-rows: 1fr 15rem 3fr;
   justify-items: center;
-  align-items: center;
   grid-gap: .5rem;
   padding: 2rem .5rem;
+}
+
+.aboutTag h2 {
+  font-size: 2rem
 }
 
 .aboutTag span {
   max-width: 30rem;
   font-size: 1.5rem;
-  text-align: justify;
 }
 
 /* Counter */
@@ -440,15 +444,16 @@ textarea, input {
 }
 
 .websitesHead {
-  height: 15rem;
-  width: 100%;
+  height: 12rem;
+  width: 80%;
+  padding: 0 1rem;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
 }
 
-.websitesHead > article {
+.websitesHead article {
   margin-left: 2rem;
   display: flex;
   flex-direction: column;
@@ -463,12 +468,12 @@ textarea, input {
 
 #websites h2 {
   font-size: 3rem;
+  padding-bottom: 2rem;
 }
 
 #websites h3 {
   margin-top: 1rem;
 }
-
 
 #websites > section {
   padding: 2rem 0 3rem;
@@ -479,10 +484,14 @@ textarea, input {
 }
 
 .webSectArt {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  width: 80%;
   justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.teamSect {
+  min-height: 20rem;
 }
 
 .gameSect {
@@ -491,14 +500,80 @@ textarea, input {
   box-shadow: 0 2px 4px #00000088;
 }
 
+.gameSect h2 {
+  color: white;
+}
+
+/* website card classes */
+
+
+.aWhole {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+.aWhole span, .aHalf span {
+  padding-bottom: .5rem;
+  padding-left: 1rem;
+}
+
+.aHalf {
+  width: 50%;
+  display: flex;
+  flex-direction: row;
+}
+
+.aHalf:not(:nth-child(2n)) {
+  padding-right: .5rem;
+}
+
+.aHalf:not(:nth-child(2n-1)) {
+  padding-left: .5rem;
+}
+
+.aThird {
+  width: 33%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.aThird:not(:nth-child(3n)) {
+  padding-right: .5rem;
+}
+
+.aThird:not(:nth-child(3n-2)) {
+  padding-left: .5rem;
+}
+
+.aThird span {
+  padding: 1rem 0 0 0;
+}
+
+.webCard {
+  margin-bottom: 2rem;
+}
+
+.webCardWhite {
+  display: block;
+  font-size: 1.3rem;
+  color: white;
+}
+
+.webCardBlack {
+  display: block;
+  font-size: 1.3rem;
+  color: black;
+}
+
 .websiteCard {
   position: relative;
-  min-width: 20rem;
-  width: 30%;
-  max-width: 24rem;
-  margin: .75rem;
-  padding: 1.5rem;
-  border-radius: 5px;
+  max-height: 20rem;
+  width: 15rem;
+  min-width: 15rem;
+  padding: 1rem;
+  border-radius: 3px;
   background-color: #1CA390;
   text-decoration: none;
   font-family: "Libre Caslon Text", serif;
@@ -519,7 +594,8 @@ textarea, input {
 }
 
 .thumb {
-  max-width: 100%;
+  max-width: 14rem;
+  width: 100%;
   border: 1px solid #12685C88;
 }
 
@@ -751,7 +827,6 @@ textarea, input {
   background-color: hsl(61, 99%, 38%, 20%);
 }
 
-
 /* Footer */
 
 #footer {
@@ -882,12 +957,14 @@ textarea, input {
       max-width: 90%;
     }
 
-    .bar1 {
-      top: 38rem;
+    /* Websites */
+
+    .websitesHead {
+      flex-direction: column;
     }
 
-    .bar2 {
-      top: 20rem;
+    .websitesHead article {
+      margin: 0;
     }
 
     .contactArt {
@@ -911,5 +988,44 @@ textarea, input {
 
     textarea {
       min-height: 200px;
+    }
+  }
+
+@media only screen
+  and (max-width: 1100px) {
+    .aHalf {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .aHalf span {
+      padding: 1rem 0 0 0;
+    }
+
+    .aThird {
+      width: 50%;
+    }
+
+    .aThird:not(:nth-child(3n)) {
+      padding-right: 0;
+    }
+
+    .aThird:not(:nth-child(3n-2)) {
+      padding-left: 0;
+    }
+
+    .aThird:not(:nth-child(2n)) {
+      padding-right: .5rem;
+    }
+
+    .aThird:not(:nth-child(2n-1)) {
+      padding-left: .5rem;
+    }
+  }
+
+  @media only screen
+  and (max-width: 620px) {
+    .aHalf, .aThird {
+      width: 100%;
     }
   }

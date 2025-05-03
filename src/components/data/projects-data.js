@@ -18,7 +18,20 @@ import minethumb from "../thumbnails/Minesweeper thumbnail.png";
 
 const websites = [
     {
+      title: 'Network',
+      personal: true,
+      tools: ['HTML', 'CSS', 'JavaScript', 'Python', 'Django'],
+      image: network,
+      description: [
+        'My introduction to pagination, network runs similarly to twitter. It\'s a project everyone is required to make, but I took certain parts into my own hands to make it personal.',
+        'I started working with keyframes to make animations, used AJAX to update the DOM, and designed a somewhat monochrome (somewhat) layout.',
+      ],
+      gitLink: 'https://github.com/me50/WritingNights/tree/web50/projects/2020/x/network',
+      youtubeLink: 'https://youtu.be/sDkqIoyUZ3M'
+    },
+    {
       title: 'Currency (CS50x final)',
+      personal: true,
       tools: ['HTML', 'CSS', 'Python', 'Flask'],
       image: curr,
       description: [
@@ -31,6 +44,7 @@ const websites = [
     },
     {
       title: 'Search',
+      personal: true,
       tools: ['HTML', 'CSS'],
       image: goog,
       description: [
@@ -42,6 +56,7 @@ const websites = [
     },
     {
       title: 'Wiki',
+      personal: true,
       tools: ['HTML', 'CSS', 'Python', 'Django'],
       image: wiki,
       description: [
@@ -54,6 +69,7 @@ const websites = [
     },
     {
       title: 'Commerce',
+      personal: true,
       tools: ['HTML', 'CSS', 'Python', 'Django'],
       image: comm,
       description: [
@@ -66,6 +82,7 @@ const websites = [
     },
     {
       title: 'Mail',
+      personal: true,
       tools: ['HTML', 'CSS', 'JavaScript', 'Python', 'Django'],
       image: mail,
       description: [
@@ -76,18 +93,8 @@ const websites = [
       youtubeLink: 'https://youtu.be/Rw2MzehrpVM'
     },
     {
-      title: 'Network',
-      tools: ['HTML', 'CSS', 'JavaScript', 'Python', 'Django'],
-      image: network,
-      description: [
-        'My introduction to pagination, network runs similarly to twitter. It\'s a project everyone is required to make, but I took certain parts into my own hands to make it personal.',
-        'I started working with keyframes to make animations, used AJAX to update the DOM, and designed a somewhat monochrome (somewhat) layout.',
-      ],
-      gitLink: 'https://github.com/me50/WritingNights/tree/web50/projects/2020/x/network',
-      youtubeLink: 'https://youtu.be/sDkqIoyUZ3M'
-    },
-    {
       title: 'Universal: World Builder',
+      personal: true,
       tools: ['HTML', 'CSS', 'JavaScript', 'Python', 'Django'],
       image: univ,
       description: [
@@ -107,16 +114,16 @@ const websites = [
       icon: xo,
       image: tic,
       description: [
-        'This was the first project I completed on my own in React after creating my React portfolio.',
-        'I used a 2D array to store values of "X", "O", or "". When a user clicks a box, I update that point in the array and replace it in the state.',
-        'Besides creating this to make my first game, and to build something in React, I strived to make something intuitive and clean.',
-        'A notable feature include restarting the game after someone wins by clicking the winner screen.'
+        'The first project I made on my own in React after creating my original portfolio.',
+        'I used a 2D array to store values of "X", "O", or "". When a box is clicked, that point in the array updates and in the state.',
+        'My goal for this was to make something intuitive and clean.'
       ],
       gitLink: 'https://github.com/WritingNights/tic-tac-toe',
       youtubeLink: null
     },
     {
       title: 'Amazon Prime Sign-up Clone',
+      personal: true,
       tools: ['HTML', 'CSS', 'JavaScript', 'React'],
       image: amzn,
       description: [
@@ -128,6 +135,7 @@ const websites = [
     },
     {
       title: 'MERN-Stack Blog',
+      personal: true,
       tools: ['HTML', 'CSS', 'JavaScript', 'React', 'Express', 'Node', 'MongoDB', 'GSAP'],
       image: blog,
       description: [
@@ -146,9 +154,8 @@ const websites = [
       icon: bomb,
       image: mine,
       description: [
-        'I took on the logical challenge that is minesweeper. From placing random mines to filling the numbers on the board, and even as far as the difference between blank, flagged, and clicked.',
-        'What came after was a challenge to myself as I strive to make all my projects as accessible as possible. The game is traditionally played with only the mouse. I didn\'t think that was enough.',
-        'This minesweeper is fully playable and navigable with just the keyboard as much as it is with mouse or touchscreen.'
+        'This version of minesweeper is fully keyboard accessible. The game is traditionally played with only the mouse. I didn\'t think that was enough.',
+        'It was a challenge beyond what I\'ve created before to develop the level of interactivity.'
       ],
       gitLink: 'https://github.com/WritingNights/minesweeper',
       youtubeLink: null
