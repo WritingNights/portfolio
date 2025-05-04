@@ -23,8 +23,8 @@ const websites = [
       tools: ['HTML', 'CSS', 'JavaScript', 'Python', 'Django'],
       image: network,
       description: [
-        'My introduction to pagination, network runs similarly to twitter. It\'s a project everyone is required to make, but I took certain parts into my own hands to make it personal.',
-        'I started working with keyframes to make animations, used AJAX to update the DOM, and designed a somewhat monochrome (somewhat) layout.',
+        'Network is the beginnings of a social media app.',
+        'My introduction to AJAX, I designed the original version in Python. This updated version comes with a fresh look and sleek animations',
       ],
       gitLink: 'https://github.com/me50/WritingNights/tree/web50/projects/2020/x/network',
       youtubeLink: 'https://youtu.be/sDkqIoyUZ3M'
