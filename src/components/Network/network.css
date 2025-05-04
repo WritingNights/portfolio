@@ -26,6 +26,10 @@
   fill: var(--network-accent);
 }
 
+.network-menu {
+  display: none;
+}
+
 .network-links {
   width: 65%;
   margin-left: 33%;
@@ -38,6 +42,7 @@
 
 .network-links textarea {
   height: 3rem;
+  min-height: auto;
   min-width: 9.5rem;
   font-size: .85rem;
   font-family: 'Poppins';
@@ -116,12 +121,34 @@
 @media only screen
   and (max-width: 812px) {
     .network-header {
+      width: 100vw;
       position: absolute;
       top: 0;
-      left: 0;
     }
 
     #networkApp main {
       width: 100vw;
+    }
+
+    .network-menu {
+      padding: .5rem .75rem;
+      display: block;
+      position: absolute;
+      top: 2rem;
+      left: 0;
+      transition: .5s ease;
+      color: white;
+      z-index: 9999;
+      font-size: 2rem;
+    }
+
+    .network-open {
+      left: 0;
+      transition: .5s ease;
+    }
+
+    .network-closed {
+      left: -100%;
+      transition: .5s ease;
     }
   }
