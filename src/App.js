@@ -17,8 +17,6 @@ import Game from "./components/Games.js"
 import Footer from "./components/Footer.js";
 import AboutMe from "./components/AboutMe.js";
 
-import skills from "./components/data/skills-data";
-import websites from "./components/data/projects-data";
 
 class App extends React.Component {
   constructor(props) {
@@ -26,7 +24,6 @@ class App extends React.Component {
 
     this.state = {
       pageNum: 0,
-      show: skills,
       currentImg: '',
       currentAlt: '',
       newProjects: true,
@@ -149,8 +146,8 @@ class App extends React.Component {
           <Route path={"/"} element={<Home collapsed={collapsed} codeCount={<Counter label={"code"} countUp={this.countUp} date={'2020-05-11 00:00:00'}/>} updatePage={this.updatePage} writeCount={<Counter label={"write"} countUp={this.countUp} date={'2015-07-25 00:00:00'}/>} />} />
           <Route path={"/about-me"} element={<AboutMe collapsed={collapsed} />} />
           <Route path={"/writing"} element={<Writing collapsed={collapsed} />} />
-          <Route path={"/websites"} element={<Websites collapsed={collapsed} websites={websites} />} />
-          <Route path={"/websites/game/:item"} element={<Game collapsed={collapsed} websites={websites} />} />
+          <Route path={"/websites"} element={<Websites collapsed={collapsed} />} />
+          <Route path={"/websites/game/:item"} element={<Game collapsed={collapsed} />} />
           <Route path={"/websites/:item"} element={<Template collapsed={collapsed} />} />
           <Route path={"/graphics"} element={<Graphics collapsed={collapsed} />} />
           <Route path={"/graphics/:item"} element={<Template collapsed={collapsed} />} />

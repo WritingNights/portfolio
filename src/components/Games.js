@@ -2,12 +2,13 @@ import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 
 import lives from "./data/live-data.js";
+import websites from "./data/projects-data";
 
 function Game(props) {
   const location = useLocation();
   const { obj, link } = location.state;
 
-  const games = props.websites.filter(
+  const games = websites.filter(
     obj => obj.game
   );
 

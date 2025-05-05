@@ -483,25 +483,20 @@ textarea, input {
   align-items: center;
 }
 
-.webSectArt {
-  width: 80%;
-  justify-content: center;
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.teamSect {
-  min-height: 20rem;
-}
-
 .gameSect {
-  width: 100%;
   background-color: #12685Cdd;
   box-shadow: 0 2px 4px #00000088;
 }
 
 .gameSect h2 {
   color: white;
+}
+
+.webSectArt {
+  width: 80%;
+  justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 /* website card classes */
@@ -960,6 +955,7 @@ textarea, input {
     /* Websites */
 
     .websitesHead {
+      padding: 1rem;
       flex-direction: column;
     }
 
@@ -1027,5 +1023,21 @@ textarea, input {
   and (max-width: 620px) {
     .aHalf, .aThird {
       width: 100%;
+    }
+
+    .aHalf:not(:nth-child(2n)) {
+      padding-right: 0;
+    }
+
+    .aHalf:not(:nth-child(2n-1)) {
+      padding-left: 0;
+    }
+
+    .aThird:not(:nth-child(3n)) {
+      padding-right: 0;
+    }
+
+    .aThird:not(:nth-child(3n-2)) {
+      padding-left: 0;
     }
   }

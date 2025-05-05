@@ -1,12 +1,14 @@
 import { Link } from "react-router-dom";
 import camera from "./icons/Camera Outline.png";
 
-export default function Websites(props) {
-  const { websites } = props;
+import websites from "./data/projects-data";
+import teams from "./data/team-data";
 
-  const team = [];
+export default function Websites(props) {
   const games = websites.filter(obj => obj.game);
   const personal = websites.filter(obj => obj.personal);
+
+  console.log(teams);
 
   return (
     <section id="websites" className="manager">
@@ -19,17 +21,28 @@ export default function Websites(props) {
       <section className="teamSect">
         <h2>Team Projects</h2>
         <article className="webSectArt">
-          {team.map((obj, i) => {
-            return (i)
+          {teams.map((obj, i) => {
+            return (<article className={teams.length % 3 === 0 ? 'aThird webCard' : teams.length % 2 === 0 || (i + 2 >= teams.length && teams.length % 3 === 2) ? 'aHalf webCard' : teams.length === 1 || (i + 1 === teams.length && teams.length % 3 === 1) ? 'aWhole webCard' : 'webCard'} key={i}>
+              <a href="" className="websiteCard" tabIndex="0">
+                <svg src={obj.image} width="100%" height="100%"></svg>
+                {/*{obj.image ? <img src={obj.thumbnail} alt={`${obj.title} thumbnail`} className="thumb" /> : ''}*/}
+                <h3>{obj.title}</h3>
+              </a>
+              <section>
+                {obj.description.map((line, j) => {
+                  return (<span className="webCardBlack" key={j}>
+                    {line}
+                  </span>)
+                })}
+              </section>
+            </article>)
           })}
-          <h3>In progress...</h3>
         </article>
       </section>
       <section className="gameSect">
         <h2>Games</h2>
         <article className="webSectArt">
           {games.map((obj, i) => {
-            console.log(games.length, i);
             return (<article className={games.length % 3 === 0 ? 'aThird webCard' : games.length % 2 === 0 || (i + 2 >= games.length && games.length % 3 === 2) ? 'aHalf webCard' : games.length === 1 || (i + 1 === games.length && games.length % 3 === 1) ? 'aWhole webCard' : 'webCard'} key={i}>
               <Link to={`/websites/game/${obj.title}`} state={{ obj: obj, link: 'websites' }} className="websiteCard" tabIndex="0">
                 {obj.thumbnail ? <img src={obj.thumbnail} alt={`${obj.title} thumbnail`} className="thumb" /> : ''}
