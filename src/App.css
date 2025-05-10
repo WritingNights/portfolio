@@ -499,6 +499,11 @@ textarea, input {
   flex-wrap: wrap;
 }
 
+.teamIcon {
+  width: 70%;
+  aspect-ratio: 4 / 5;
+}
+
 /* website card classes */
 
 

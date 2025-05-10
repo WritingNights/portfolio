@@ -43,7 +43,9 @@ const Position = props => {
 
   const active = { boxShadow: 'inset 0 0 5px black', fontSize: `${size / 1.25}px` };
 
-  return (<div name={`${i}, ${j}`} id={`x${i}y${j}`} style={position.x === j && position.y === i ? active : { fontSize: `${size / 1.25}px` }} className={(!info.visible || info.visible === 'flag') ? "fieldUnit" : "visible fieldUnit"} onClick={() => {if (!props.tool) {props.flag(i, j)} else if (!info.visible) props.updateArea(props.choose(i, j)); props.updatePosition(j, i)}} onContextMenu={(e) => {e.preventDefault(); props.flag(i, j)}}>
+  return (<div name={`${i}, ${j}`} id={`x${i}y${j}`} style={position.x === j && position.y === i ? active : { fontSize: `${size / 1.25}px` }} className={(!info.visible || info.visible === 'flag') ? "fieldUnit" : "visible fieldUnit"} onClick={() => {
+      if (!props.tool) {props.flag(i, j)} else if (!info.visible) props.updateArea(props.choose(i, j)); props.updatePosition(j, i)
+    }} onContextMenu={(e) => {e.preventDefault(); props.flag(i, j)}}>
     {info.visible ? info.visible === 'flag' ? flag : info.value === 'B' ? bomb : info.value : ''}
   </div>);
 };

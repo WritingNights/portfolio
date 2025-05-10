@@ -1,4 +1,5 @@
 import mural from "../icons/Murals.svg";
+import campaign from "../icons/AndCampaign.svg";
 
 const teams = [
   {
@@ -15,9 +16,9 @@ const teams = [
     title: '& Campaign',
     team: true,
     tools: ['HTML', 'CSS', 'Javascript'],
-    image: '',
+    image: campaign,
     description: [
-      ''
+      'Developed to support MAT student success'
     ],
     liveLink: ''
   },

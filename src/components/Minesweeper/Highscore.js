@@ -38,7 +38,19 @@ class Highscores extends React.Component {
   render() {
     const { info } = this.state;
     return (<aside className={this.props.showTab ? "highscores showTab" : "highscores"}>
-      <div className="pullTag" onClick={this.props.toggleTab}>Highscores</div>
+      <div className="pullTag" onClick={this.props.toggleTab}>
+        <div className="highGuide" style={!this.props.showTab ? {display: 'none'} : {}}>
+          <div>
+            <div className="midBack"><span>1-</span><span>10</span></div>
+            <div>Details</div>
+          </div>
+          <div>
+            <div className="largeBack">-</div>
+            <div>X</div>
+          </div>
+        </div>
+        <span>Highscores</span>
+      </div>
       <div className="scores">
         {info.score ? (<div className="scoreKeeper">
           <div onClick={() => this.setState({ info: {} })} id="keeperCloser">
@@ -55,16 +67,6 @@ class Highscores extends React.Component {
         {this.props.highscores.map((obj, i) => {
           return <span key={i} title={`Height: ${obj.height}\nWidth: ${obj.width}\nMines: ${obj.mines}\nTime: ${obj.time}`} onClick={() => this.setState({ info: obj })}>{this.props.highscores.length - i}: {obj.score}</span>;
         })}
-      </div>
-      <div className="highGuide">
-        <div>
-          <div className="midBack"><span>1-</span><span>10</span></div>
-          <div>Details</div>
-        </div>
-        <div>
-          <div className="largeBack">-</div>
-          <div>X</div>
-        </div>
       </div>
     </aside>);
   }

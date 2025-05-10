@@ -104,31 +104,35 @@ class Game extends React.Component {
 
   choose(x, y) {
     const { height, width, board, area, mines } = this.state;
-    let subtract = 0;
-    // replace point at specific coordinate
-    board[x][y] = {...board[x][y], visible: true};
-    // update board
-    this.setState({ board: board, area: this.state.area - 1 });
-    gsap.fromTo(`#x${x}y${y}`, {opacity: 0}, {opacity: 1, duration: .15, onComplete: () => {subtract += this.surrounding(x, y)}});
-    if (board[x][y].value === 'B') {
-      this.allMines();
-      clearInterval(this.state.intervalId);
-      this.setState({ playing: false });
-      return;
+    console.log(board[x][y].visible);
+    if (board[x][y] !== 'flag') {
+      let subtract = 0;
+      // replace point at specific coordinate
+      board[x][y] = {...board[x][y], visible: true};
+      // update board
+      this.setState({ board: board, area: this.state.area - 1 });
+      gsap.fromTo(`#x${x}y${y}`, {opacity: 0}, {opacity: 1, duration: .15, onComplete: () => {subtract += this.surrounding(x, y)}});
+      if (board[x][y].value === 'B') {
+        this.allMines();
+        clearInterval(this.state.intervalId);
+        this.setState({ playing: false });
+        return;
+      }
+      if (area === height * width) {
+        this.setState({ intervalId: setInterval(() => {
+          this.incrementTime();
+        }, 1000) });
+      }
+      if (area - 1 === mines) {
+        let score = Math.round((height * width * mines) / (1 + this.state.time / 50));
+        alert(`you won\nscore is ${score}`);
+        this.props.newScore({score: score, height: height, width: width, mines: mines, time: this.state.time});
+        clearInterval(this.state.intervalId);
+        this.setState({ playing: false });
+      }
+      return subtract - 1;
     }
-    if (area === height * width) {
-      this.setState({ intervalId: setInterval(() => {
-        this.incrementTime();
-      }, 1000) });
-    }
-    if (area - 1 === mines) {
-      let score = Math.round((height * width * mines) / (1 + this.state.time / 50));
-      alert(`you won\nscore is ${score}`);
-      this.props.newScore({score: score, height: height, width: width, mines: mines, time: this.state.time});
-      clearInterval(this.state.intervalId);
-      this.setState({ playing: false });
-    }
-    return subtract - 1;
+    return 0;
   }
 
   surrounding(x, y) {
@@ -173,11 +177,12 @@ class Game extends React.Component {
   }
 
   updateArea(area) {
-    this.setState({ area: this.state.area + area });
+    console.log(this.state.area, area);
+    if (area < 0) this.setState({ area: this.state.area + area });
   }
 
   updatePosition(x, y) {
-    this.setState({ position: {x: x, y: y} });
+    if (this.state.board[x][y].visible !== 'flag') this.setState({ position: {x: x, y: y} });
   }
 
   new(height, width, mines) {
@@ -244,9 +249,9 @@ class Game extends React.Component {
     // space
     if (e.keyCode === 32) {
       if (playing) {
-        if (tool) {
+        if (tool && this.state.board[position.y][position.x].visible === false) {
           this.choose(position.y, position.x);
-        } else {
+        } else if (!tool) {
           this.flag(position.y, position.x)
         }
       }
