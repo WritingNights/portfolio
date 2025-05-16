@@ -49,7 +49,7 @@ class Navbar extends React.Component {
               <Link to={"/websites"} className={`${window.location.pathname.split('/')[1] === 'websites' ? 'activeLink' : ''} link center`} title="Websites" onClick={() => updatePage("websites")} tabIndex="0">
                &nbsp;Websites
               </Link>
-              <Link to={"/graphics"} className={`${window.location.pathname.split('/')[1] === 'graphics' ? 'activeLink' : ''} link center`} title="Graphics" onClick={() => updatePage("graphics")} tabIndex="0">
+              {/*<Link to={"/graphics"} className={`${window.location.pathname.split('/')[1] === 'graphics' ? 'activeLink' : ''} link center`} title="Graphics" onClick={() => updatePage("graphics")} tabIndex="0">
                 &nbsp;Graphics
               </Link>
               {/*<Link to={"/podcast"} className={`${window.location.pathname.split('/')[1] === 'podcast' ? 'activeLink' : ''} link center podcast`} title="Podcast" onClick={() => updatePage("podcast")} tabIndex="0">

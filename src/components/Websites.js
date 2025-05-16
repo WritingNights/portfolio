@@ -23,7 +23,7 @@ export default function Websites(props) {
         <article className="webSectArt">
           {teams.map((obj, i) => {
             return (<article className={teams.length % 3 === 0 ? 'aThird webCard' : teams.length % 2 === 0 || (i + 2 >= teams.length && teams.length % 3 === 2) ? 'aHalf webCard' : teams.length === 1 || (i + 1 === teams.length && teams.length % 3 === 1) ? 'aWhole webCard' : 'webCard'} key={i}>
-              <a href="" className="websiteCard" tabIndex="0">
+              <a href="" target="_blank" className="websiteCard" tabIndex="0">
                 <img src={obj.image} alt={obj.title + ' icon'} className="teamIcon"/>
                 <h3>{obj.title}</h3>
               </a>
@@ -64,8 +64,8 @@ export default function Websites(props) {
           {personal.map((obj, i) => {
             return (<article  className={personal.length % 3 === 0 ? 'aThird webCard' : personal.length % 2 === 0 || (i + 2 >= personal.length && personal.length % 3 === 2) ? 'aHalf webCard' : personal.length === 1 || (i + 1 === personal.length && personal.length % 3 === 1) ? 'aWhole webCard' : 'webCard'} key={i}>
               <Link to={`/websites/${obj.title}`} state={{ obj: obj, link: 'websites' }} key={i} className="websiteCard" tabIndex="0">
+                {obj.thumbnail ? <img src={obj.thumbnail} alt={`${obj.title} thumbnail`} className="webThumb" /> : ''}
                 {obj.title}
-                {obj.thumbnail ? <img src={obj.thumbnail} alt={`${obj.title} thumbnail`} className="thumb" /> : ''}
               </Link>
               <section>
                 {obj.description.map((line, j) => {

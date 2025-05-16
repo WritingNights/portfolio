@@ -376,7 +376,7 @@ textarea, input {
   margin: .5rem 0;
   border-radius: .25rem;
   display: grid;
-  grid-template-rows: 1fr 15rem 3fr;
+  grid-template-rows: 1fr 25rem 3fr;
   justify-items: center;
   grid-gap: .5rem;
   padding: 2rem .5rem;
@@ -597,6 +597,12 @@ textarea, input {
   max-width: 14rem;
   width: 100%;
   border: 1px solid #12685C88;
+}
+
+.webThumb {
+  max-width: 14rem;
+  width: 100%;
+  padding-bottom: 1rem;
 }
 
 /* Graphics */

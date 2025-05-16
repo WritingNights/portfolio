@@ -12,9 +12,12 @@ import mine from "../Websites/Minesweeper.png";
 
 import xo from "../icons/XO.png";
 import bomb from "../icons/Bomb.png";
+import sudokuIcon from "../icons/SudokuIcon.svg";
 
+import netthumb from "../thumbnails/Network.svg";
 import xothumb from "../thumbnails/XO thumbnail.png";
 import minethumb from "../thumbnails/Minesweeper thumbnail.png";
+import sudokuthumb from "../thumbnails/Sudoku.svg";
 
 const websites = [
     {
@@ -22,14 +25,15 @@ const websites = [
       personal: true,
       tools: ['HTML', 'CSS', 'JavaScript', 'Python', 'Django'],
       image: network,
+      thumbnail: netthumb,
       description: [
         'Network is the beginnings of a social media app.',
-        'My introduction to AJAX, I designed the original version in Python. This updated version comes with a fresh look and sleek animations',
+        'My introduction to AJAX, I designed the original version in Python. This updated version comes with a fresh look and sleek animations.',
       ],
       gitLink: 'https://github.com/me50/WritingNights/tree/web50/projects/2020/x/network',
       youtubeLink: 'https://youtu.be/sDkqIoyUZ3M'
     },
-    {
+    /*{
       title: 'Currency (CS50x final)',
       personal: true,
       tools: ['HTML', 'CSS', 'Python', 'Flask'],
@@ -105,7 +109,7 @@ const websites = [
       ],
       gitLink: 'https://github.com/me50/WritingNights/tree/web50/projects/2020/x/capstone',
       youtubeLink: 'https://youtu.be/D-I8_pMc8Co'
-    },
+    },*/
     {
       title: 'Tic-Tac-Toe',
       game: true,
@@ -121,7 +125,7 @@ const websites = [
       gitLink: 'https://github.com/WritingNights/tic-tac-toe',
       youtubeLink: null
     },
-    {
+    /*{
       title: 'Amazon Prime Sign-up Clone',
       personal: true,
       tools: ['HTML', 'CSS', 'JavaScript', 'React'],
@@ -145,7 +149,7 @@ const websites = [
       ],
       gitLink: 'https://github.com/WritingNights/blog',
       youtubeLink: null
-    },
+    },*/
     {
       title: 'Minesweeper',
       game: true,
@@ -159,7 +163,21 @@ const websites = [
       ],
       gitLink: 'https://github.com/WritingNights/minesweeper',
       youtubeLink: null
-    }
+    },/*
+    {
+      title: 'Sudoku',
+      game: true,
+      tools: ['HTML', 'CSS', 'JavaScript', 'React'],
+      thumbnail: sudokuthumb,
+      icon: sudokuIcon,
+      image: '',
+      description: [
+        'A childhood passion, sudoku was a favored pasttime.',
+        'Now '
+      ],
+      gitLink: '',
+      youtubeLink: ''
+    }*/
   ];
 
 export default websites;

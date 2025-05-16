@@ -1,7 +1,11 @@
+:root {
+  --minesweeper-main: #F4DAC0;
+}
+
 #minesweeperMain {
   height: calc(100vh - 3rem);
   position: relative;
-  background-color: #77c292;
+  background-color: var(--minesweeper-main)/*#77c292*/;
 }
 
 #coverScreen {
@@ -50,7 +54,7 @@
 }
 
 .fieldUnit {
-  background-color: #abce4c;
+  background-color: #77c292;
   outline: 1px solid black;
   aspect-ratio: 1 / 1;
   text-align: center;

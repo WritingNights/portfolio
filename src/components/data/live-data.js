@@ -1,5 +1,6 @@
 import XO from "../XO.js";
 import Minesweeper from "../Minesweeper.js";
+import Sudoku from "../Sudoku.js";
 
 import Network from "../Network.js";
 
@@ -46,7 +47,11 @@ const lives = [
     },
     {
       title: 'Minesweeper',
-      game: Minesweeper,
+      game: Minesweeper
+    },
+    {
+      title: 'Sudoku',
+      game: Sudoku
     }
   ];
 

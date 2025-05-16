@@ -1,0 +1,9 @@
+:root {
+  --sudoku-main: #F4DAC0;
+}
+
+#sudokuMain {
+  height: calc(100vh - 3rem);
+  position: relative;
+  background-color: var(--sudoku-main);
+}

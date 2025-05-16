@@ -29,15 +29,14 @@ export default function About(props) {
             <div className="aboutTag">
               <h2>Logic</h2>
               <span>
-                My personal website started it all. freeCodeCamp gave me baby steps. HarvardX tested my ability. CS college courses solidified the knowledge. Personal projects (including accessible minesweeper) dialed it all in. And unbreakable drive pushed me through.
+              I don’t approach web development with a one-size-fits-all mindset. I think outside the box by questioning conventions, challenging assumptions, and finding creative angles to solve complex problems. Whether I’m writing code or designing interfaces, I treat each project like a blank page, ready to be shaped by bold ideas and thoughtful logic. Innovation comes from exploring what others might overlook and building something meaningful from the ground up.
               </span>
               {props.codeCount}
             </div>
             <div className="aboutTag">
               <h2>Perspective</h2>
               <span>
-                {/* Write about perspective */}
-                Before all that, I had an even more “from all over” set of experiences that lead to my success as a developer. These experiences fueled my desire for accessibility standards, opened my mind to complex and scalable designs, and developed my logical thinking.
+                At the core of my work is a deep focus on perspective. As both a developer and an author, I understand how structure and storytelling work together. I care about how users experience what I build and how readers connect with what I write. Every detail matters, from the flow of a website to the rhythm of a sentence, because how something is seen and felt is just as important as how it functions.
               </span>
               {props.writeCount}
             </div>

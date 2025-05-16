@@ -1,5 +1,6 @@
-import mural from "../icons/Murals.svg";
-import campaign from "../icons/AndCampaign.svg";
+import mural from "../thumbnails/Murals.svg";
+import campaign from "../thumbnails/AndCampaign.svg";
+import utility from "../thumbnails/Utility Box.svg";
 
 const teams = [
   {
@@ -18,17 +19,18 @@ const teams = [
     tools: ['HTML', 'CSS', 'Javascript'],
     image: campaign,
     description: [
-      'Developed to support MAT student success'
+      'Developed by MAT students to support MAT student success, the And Campaign shares the history of the MAT program at MiraCosta College. It also gives users the opportunity to donate to the MAT program.',
+      ''
     ],
-    liveLink: ''
+    liveLink: 'https://and-campaign.com/'
   },
   {
     title: 'MiraCosta Gallery Website',
     team: true,
     tools: ['Wordpress'],
-    image: '',
+    image: utility,
     description: [
-      ''
+      'The Miracosta are gallery, formerly known as '
     ],
     liveLink: ''
   }
