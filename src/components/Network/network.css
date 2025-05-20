@@ -6,8 +6,7 @@
 }
 
 #networkApp {
-  min-height: calc(100vh - 10rem);
-  max-height: calc(100vh - 10rem);
+  height: 100vh;
   background-color: var(--network-main);
   font-family: 'Poppins';
   display: flex;
@@ -16,7 +15,7 @@
 }
 
 .network-header {
-  height: calc(100vh - 10rem);
+  height: 100vh;
   width: 30vw;
   padding: .5rem;
   background-color: var(--network-secondary);
@@ -43,7 +42,9 @@
 .network-links textarea {
   height: 3rem;
   min-height: auto;
+  width: 100%;
   min-width: 9.5rem;
+  margin-bottom: .75rem;
   font-size: .85rem;
   font-family: 'Poppins';
   background-color: transparent;
@@ -55,10 +56,10 @@
 }
 
 .network-links textarea::placeholder {
-  color: white;
+  color: #D3CF00;
   font-size: 1.5rem;
   font-weight: bold;
-  transform: translateX(-2px);
+  transform: translate(-2px, calc(1rem - 3px));
 }
 
 .network-links textarea:focus, .network-links textarea:active {
@@ -83,16 +84,22 @@
   font-weight: bold;
 }
 
-.network-links span {
+.network-links a {
   min-width: 9.5rem;
   margin: 1rem 0;
-  border-left: 1px solid transparent;
+  color: white;
+  border: 1px solid transparent;
+  text-decoration: none;
+}
+
+.network-links a:hover {
+  text-decoration: underline;
 }
 
 /* Posts */
 
 #networkApp main {
-  max-height: calc(100vh - 10rem);;
+  max-height: 100vh;
   width: 70vw;
   padding: 3rem 0 1rem 3rem;
   overflow-y: scroll;
@@ -116,6 +123,12 @@
   flex-direction: row;
   justify-content: space-between;
   font-size: .75rem;
+}
+
+/* History */
+
+.netHistory p {
+  margin-top: 1rem;
 }
 
 @media only screen

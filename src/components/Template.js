@@ -1,13 +1,16 @@
-import { Link, useLocation } from "react-router-dom";
+import { Routes, Route, Link, useLocation } from "react-router-dom";
 import lives from "./data/live-data.js";
 
 function Template(props) {
   const location = useLocation();
   const { obj, link } = location.state || {};
-  const Live = lives.filter(x => x.title === obj.title)[0]?.live
+  const path = window.location.pathname.split("/")[2];
+  const Live = obj ? lives.filter(x => x.title === obj.title)[0]?.live : lives.filter(x => x.title === path)[0]?.live;
   if (Live) {
     return (
-      <Live />
+      <Routes>
+        <Route path={"/*"} element={<Live />} />
+      </Routes>
     );
   } else {
     return (

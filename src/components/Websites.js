@@ -8,8 +8,6 @@ export default function Websites(props) {
   const games = websites.filter(obj => obj.game);
   const personal = websites.filter(obj => obj.personal);
 
-  console.log(teams);
-
   return (
     <section id="websites" className="manager">
       <header className="websitesHead">
@@ -23,7 +21,7 @@ export default function Websites(props) {
         <article className="webSectArt">
           {teams.map((obj, i) => {
             return (<article className={teams.length % 3 === 0 ? 'aThird webCard' : teams.length % 2 === 0 || (i + 2 >= teams.length && teams.length % 3 === 2) ? 'aHalf webCard' : teams.length === 1 || (i + 1 === teams.length && teams.length % 3 === 1) ? 'aWhole webCard' : 'webCard'} key={i}>
-              <a href="" target="_blank" className="websiteCard" tabIndex="0">
+              <a href={obj.liveLink} target="_blank" rel="noreferrer" className="websiteCard" tabIndex="0">
                 <img src={obj.image} alt={obj.title + ' icon'} className="teamIcon"/>
                 <h3>{obj.title}</h3>
               </a>

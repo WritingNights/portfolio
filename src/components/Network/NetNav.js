@@ -10,6 +10,7 @@ class  NetNav extends React.Component {
     }
   }
   render() {
+    const path = window.location.pathname.split("/");
     return (
       <header className={(this.props.menu ? 'network-open' : 'network-closed') + " network-header"}>
         <Link to={"/websites"} title="back" className="network-back" tabIndex="0">
@@ -18,11 +19,16 @@ class  NetNav extends React.Component {
           </svg>
         </Link>
         <section className="network-links">
-          <textarea placeholder="Post" value={this.state.post} onChange={e => this.setState({ post: e.target.value })} style={this.state.post.length > 0 ? { height: "15rem", border: "1px solid white", transition: ".5s ease" } : {}}></textarea>
-          <button style={{display: `${this.state.post.length > 0 ? 'block' : 'none'}`}} onClick={() => {this.props.postPost(this.state.post); this.setState({ post: '' })}}>Post</button>
-          <span>Home</span>
-          <span>Profile</span>
-          <span>Network Blue</span>
+          {path.length < 4 ? <div>
+            <textarea placeholder="Post" value={this.state.post} onChange={e => this.setState({ post: e.target.value })} style={this.state.post.length > 0 ? { height: "15rem", border: "1px solid white", transition: ".5s ease" } : {}}></textarea>
+            <button style={{display: `${this.state.post.length > 0 ? 'block' : 'none'}`}} onClick={() => {this.props.postPost(this.state.post); this.setState({ post: '' })}}>
+              Post
+            </button>
+          </div> :
+          <Link to={""}>Home</Link>}
+          <Link to={"profile"} style={path[3] === 'profile' ? {textDecoration: 'underline'} : {}}>Profile</Link>
+          <Link to={"net-blue"} style={path[3] === 'net-blue' ? {textDecoration: 'underline'} : {}}>Network Blue</Link>
+          <Link to={"history"} style={path[3] === 'history' ? {textDecoration: 'underline'} : {}}>History</Link>
         </section>
       </header>
     );

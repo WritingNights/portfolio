@@ -148,7 +148,7 @@ class App extends React.Component {
           <Route path={"/writing"} element={<Writing collapsed={collapsed} />} />
           <Route path={"/websites"} element={<Websites collapsed={collapsed} />} />
           <Route path={"/websites/game/:item"} element={<Game collapsed={collapsed} />} />
-          <Route path={"/websites/:item"} element={<Template collapsed={collapsed} />} />
+          <Route path={"/websites/:item/*"} element={<Template collapsed={collapsed} />} />
           <Route path={"/graphics"} element={<Graphics collapsed={collapsed} />} />
           <Route path={"/graphics/:item"} element={<Template collapsed={collapsed} />} />
           <Route path={"/podcast"} element={<Podcast collapsed={collapsed} />} />

@@ -473,9 +473,11 @@ textarea, input {
 
 #websites h3 {
   margin-top: 1rem;
+  text-align: center;
 }
 
-#websites > section {
+.teamSect, .gameSect, .oldSect {
+  width: 100%;
   padding: 2rem 0 3rem;
   display: flex;
   flex-direction: column;
@@ -585,12 +587,13 @@ textarea, input {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  transition: .5s ease;
+  transition: .25s ease;
 }
 
 .websiteCard:hover, .websiteCard:focus {
-  transform: skew(1deg) translate(-1rem, -1rem);
-  transition: .5 ease;
+/*  transform: skew(1deg) translate(-1rem, -1rem);*/
+  box-shadow: 0 0 8px 2px rgba(0, 100, 100, 0.8);
+  transition: .25 ease;
 }
 
 .thumb {

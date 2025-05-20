@@ -1,23 +1,23 @@
-import blog from "../Websites/MernBlog.png";
+/*import blog from "../Websites/MernBlog.png";
 import amzn from "../Websites/Amazon.png";
-import tic from "../Websites/Tic-Tac-Toe.png";
 import univ from "../Websites/Universal.png";
 import curr from "../Websites/Currency.png";
-import network from "../Websites/Network.png";
 import mail from "../Websites/Mail.png";
 import comm from "../Websites/Commerce.png";
 import wiki from "../Websites/Wiki.png";
-import goog from "../Websites/Search.png";
+import goog from "../Websites/Search.png";*/
+import tic from "../Websites/Tic-Tac-Toe.png";
 import mine from "../Websites/Minesweeper.png";
+import network from "../Websites/Network.png";
 
 import xo from "../icons/XO.png";
 import bomb from "../icons/Bomb.png";
-import sudokuIcon from "../icons/SudokuIcon.svg";
+//import sudokuIcon from "../icons/SudokuIcon.svg";
 
 import netthumb from "../thumbnails/Network.svg";
 import xothumb from "../thumbnails/XO thumbnail.png";
 import minethumb from "../thumbnails/Minesweeper thumbnail.png";
-import sudokuthumb from "../thumbnails/Sudoku.svg";
+//import sudokuthumb from "../thumbnails/Sudoku.svg";
 
 const websites = [
     {

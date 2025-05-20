@@ -1,9 +1,14 @@
 import React from 'react';
+import { Routes, Route } from 'react-router-dom';
 import './Network/network.css';
 import moment from 'moment';
 
 import NetNav from "./Network/NetNav.js";
-import NetPost from "./Network/NetPost.js";
+import NetHome from "./Network/NetHome.js";
+import NetProfile from './Network/NetProfile.js';
+import NetBlue from './Network/NetBlue.js';
+import NetHistory from './Network/NetHistory.js';
+
 
 import fakePosts from "./Network/posts.js";
 
@@ -45,8 +50,12 @@ class Network extends React.Component {
       <div className="network-menu" tabIndex="0" onClick={() => this.setState({ menu: !this.state.menu })} onKeyDown={this.handleKeyPress}>{this.state.menu ? 'X' : '>'}</div>
       <NetNav postPost={this.postPost} menu={this.state.menu} />
       <main>
-        {posts.map((obj, i) => <NetPost data={obj} key={i} />)}
-        {fakePosts.map((obj, i) => <NetPost data={obj} fake={true} key={i} />)}
+        <Routes>
+          <Route path={""} element={<NetHome posts={posts} fakePosts={fakePosts} />} />
+          <Route path={"profile"} element={<NetProfile posts={posts} />} />
+          <Route path={"net-blue"} element={<NetBlue />} />
+          <Route path={"history"} element={<NetHistory />} />
+        </Routes>
       </main>
     </div>);
   }
