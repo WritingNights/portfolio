@@ -43,6 +43,7 @@ class Navbar extends React.Component {
               <img src={icon} alt="home button/icon" style={{width: "3rem", aspectRatio: 1}} />
             </Link>
             <section className="links">
+              <div tabIndex="0" className="link center" onClick={() => this.props.contact(true)} onKeyDown={e => e.keyCode === 13 ? this.props.contact(true) : ''}>Contact</div>
               <Link to={"/about-me"} className={`${window.location.pathname.split('/')[1] === 'about-me' ? 'activeLink' : ''} link center`} title="Contact" onClick={() => updatePage("about-me")} tabIndex="0">
                 About Me
               </Link>

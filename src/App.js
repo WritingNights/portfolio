@@ -141,7 +141,7 @@ class App extends React.Component {
     return (
       <main>
         {this.state.contactForm ? <Contact handleSubmit={this.handleSubmit} contact={this.contact} updateState={this.updateState} name={formName} email={formEmail} message={formMessage} /> : ''}
-        <Navbar updatePage={this.updatePage} collapse={this.collapse} collapsed={collapsed} fixed={fixed} />
+        <Navbar updatePage={this.updatePage} collapse={this.collapse} collapsed={collapsed} fixed={fixed} contact={this.contact} />
         <Routes>
           <Route path={"/"} element={<Home collapsed={collapsed} codeCount={<Counter label={"code"} countUp={this.countUp} date={'2020-05-11 00:00:00'}/>} updatePage={this.updatePage} writeCount={<Counter label={"write"} countUp={this.countUp} date={'2015-07-25 00:00:00'}/>} />} />
           <Route path={"/about-me"} element={<AboutMe collapsed={collapsed} />} />
